@@ -39,7 +39,6 @@ public class ActionBarDamageIndicator implements Listener {
         double maxHealth = damagedEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
         double currentHealth = Math.max(damagedEntity.getHealth() - e.getFinalDamage(), 0);
         DecimalFormat df = new DecimalFormat("0.0");
-        DecimalFormat df2 = new DecimalFormat("0");
 
 
 
@@ -48,20 +47,28 @@ public class ActionBarDamageIndicator implements Listener {
 
         actionbarVisual += ChatColor.RED + "";
 
-        for(int i = 0; i < currentHealth ; i++) {
-            actionbarVisual += "❤";
+        if(currentHealth > 0) {
+
+
+            for (int i = 0; i < currentHealth; i++) {
+                actionbarVisual += "❤";
+            }
+
+            actionbarVisual += ChatColor.GRAY;
+
+            double missingHP = maxHealth - currentHealth;
+
+            for (int i = 0; i < missingHP; i++) {
+                actionbarVisual += "❤";
+            }
+
+            actionbarVisual += ChatColor.RED + " " + df.format(e.getDamage()); 
+
+            attacker.sendActionBar(actionbarVisual);
+
+        }else{
+            attacker.sendActionBar(ChatColor.GOLD + name + " - " + ChatColor.RED + "DEAD " + df.format(e.getDamage()));
         }
-
-        actionbarVisual+=ChatColor.GRAY;
-
-        double missingHP = maxHealth - currentHealth;
-
-        for(int i = 0; i < missingHP ; i++) {
-            actionbarVisual += "❤";
-        }
-
-        attacker.sendActionBar(actionbarVisual);
-
 
     }
 
