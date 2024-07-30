@@ -1,0 +1,4 @@
+name: MinigamePlugin
+version: '${project.version}'
+main: mod.minigameplugin.MinigamePlugin
+api-version: '1.21'
