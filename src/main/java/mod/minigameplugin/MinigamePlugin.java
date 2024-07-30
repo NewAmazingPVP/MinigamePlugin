@@ -1,4 +1,4 @@
-package fr.mrmicky.fastboard.example;
+package mod.minigameplugin;
 
 import fr.mrmicky.fastboard.FastBoard;
 import org.bukkit.ChatColor;
