@@ -1,0 +1,27 @@
+name: Java Build and Artifact
+
+on:
+  push: {branches: ["master", "main"]}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '21'
+          distribution: 'adopt'
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Upload JAR as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: MinigamePlugin
+          path: ./target/MinigamePlugin-1.0.jar
