@@ -1,6 +1,8 @@
 package mod.minigameplugin;
 
+import com.earth2me.essentials.Essentials;
 import fr.mrmicky.fastboard.FastBoard;
+import mod.minigameplugin.AllMinigameListeners.ActionBarDamageIndicator;
 import org.bukkit.ChatColor;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
@@ -16,11 +18,14 @@ import java.util.UUID;
 
 public final class MinigamePlugin extends JavaPlugin implements Listener {
 
+    public static Essentials essentials;
+
     private final Map<UUID, FastBoard> boards = new HashMap<>();
 
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
+        getServer().getPluginManager().registerEvents(new ActionBarDamageIndicator(), this);
 
         getServer().getScheduler().runTaskTimer(this, () -> {
             for (FastBoard board : this.boards.values()) {
