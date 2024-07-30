@@ -3,6 +3,7 @@ package mod.minigameplugin;
 import com.earth2me.essentials.Essentials;
 import fr.mrmicky.fastboard.FastBoard;
 import mod.minigameplugin.AllMinigameListeners.ActionBarDamageIndicator;
+import mod.minigameplugin.MainLobby.LobbyMain;
 import org.bukkit.ChatColor;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
@@ -26,6 +27,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new ActionBarDamageIndicator(), this);
+        getServer().getPluginManager().registerEvents(new LobbyMain(), this);
 
         getServer().getScheduler().runTaskTimer(this, () -> {
             for (FastBoard board : this.boards.values()) {
@@ -40,7 +42,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
 
         FastBoard board = new FastBoard(player);
 
-        board.updateTitle(ChatColor.RED + "FastBoard");
+        board.updateTitle(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Nappixel Mini Games");
 
         this.boards.put(player.getUniqueId(), board);
     }
