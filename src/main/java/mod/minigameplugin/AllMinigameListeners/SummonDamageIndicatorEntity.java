@@ -29,9 +29,9 @@ public class SummonDamageIndicatorEntity {
         armorStand.setGravity(true);
         armorStand.setCustomNameVisible(true);
 
-        String customTag = "damage_indicator";
+        /*String customTag = "damage_indicator";
         MetadataValue customTagValue = new FixedMetadataValue(minigamePlugin, customTag);
-        armorStand.setMetadata(customTag, customTagValue);
+        armorStand.setMetadata(customTag, customTagValue);*/
 
         if (damageAmount <= 1) {
             armorStand.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + damageAmount + ChatColor.GREEN + "❤");
@@ -71,7 +71,7 @@ public class SummonDamageIndicatorEntity {
                 }
 
                 DamageSource customDamage = DamageSource.builder((DamageType) DamageSource.builder(DamageType.EXPLOSION)).build();
-                armorStand.damage(100, customDamage); 
+                armorStand.damage(100, customDamage);
 
             }
         };
