@@ -3,6 +3,7 @@ package mod.minigameplugin;
 import com.earth2me.essentials.Essentials;
 import fr.mrmicky.fastboard.FastBoard;
 import mod.minigameplugin.AllMinigameListeners.ActionBarDamageIndicator;
+import mod.minigameplugin.AllMinigameListeners.HitIndicator;
 import mod.minigameplugin.MainLobby.LobbyMain;
 import org.bukkit.ChatColor;
 import org.bukkit.Statistic;
@@ -28,6 +29,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new ActionBarDamageIndicator(), this);
         getServer().getPluginManager().registerEvents(new LobbyMain(), this);
+        getServer().getPluginManager().registerEvents(new HitIndicator(), this);
 
         getServer().getScheduler().runTaskTimer(this, () -> {
             for (FastBoard board : this.boards.values()) {

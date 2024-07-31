@@ -62,7 +62,7 @@ public class ActionBarDamageIndicator implements Listener {
                 actionbarVisual += "❤";
             }
 
-            actionbarVisual += ChatColor.RED + " " + df.format(e.getDamage()); 
+            actionbarVisual += ChatColor.RED + " " + df.format(e.getDamage());
 
             attacker.sendActionBar(actionbarVisual);
 
