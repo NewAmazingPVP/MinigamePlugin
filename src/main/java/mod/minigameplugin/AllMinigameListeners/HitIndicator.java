@@ -45,15 +45,5 @@ public class HitIndicator implements Listener {
 
     }
 
-    @EventHandler
-    public void armorstandMove(EntityMoveEvent e){
-
-        Entity entity = e.getEntity();
-
-        if(entity instanceof ArmorStand){
-            entity.remove();
-        }
-
-    }
 
 }
