@@ -65,10 +65,12 @@ public class SummonDamageIndicatorEntity {
             @Override
             public void run() {
 
-                /*if (armorStand.isDead()) {
+                if (armorStand.isDead()) {
                     this.cancel();
                     return;
-                }*/
+                }
+
+                Bukkit.broadcastMessage("test123");
 
                 DamageSource customDamage = DamageSource.builder((DamageType) DamageSource.builder(DamageType.EXPLOSION)).build();
                 armorStand.damage(100, customDamage);
