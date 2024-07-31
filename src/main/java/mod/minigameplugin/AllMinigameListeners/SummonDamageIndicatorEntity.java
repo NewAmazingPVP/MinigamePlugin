@@ -4,6 +4,8 @@ import org.bukkit.*;
 import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
+import org.bukkit.damage.DamageSource;
+import org.bukkit.damage.DamageType;
 import org.bukkit.entity.*;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
@@ -20,7 +22,7 @@ public class SummonDamageIndicatorEntity {
     public SummonDamageIndicatorEntity(Location location, Double damageAmount, World world) {
 
         //Make zombie
-        /*ArmorStand armorStand = (ArmorStand) world.spawnEntity(location, EntityType.ARMOR_STAND);
+        ArmorStand armorStand = (ArmorStand) world.spawnEntity(location, EntityType.ARMOR_STAND);
         armorStand.setVisible(false);
         armorStand.setSmall(true);
         armorStand.setInvulnerable(true);
@@ -56,10 +58,10 @@ public class SummonDamageIndicatorEntity {
         double randomZFix = randomZ / 3;
 
         org.bukkit.util.Vector velocity = new Vector(randomXFix, .2, randomZFix);
-        armorStand.setVelocity(velocity);*/
+        armorStand.setVelocity(velocity);
 
 
-        /*mageMobAttackRate = new BukkitRunnable() {
+        mageMobAttackRate = new BukkitRunnable() {
             @Override
             public void run() {
 
@@ -68,38 +70,15 @@ public class SummonDamageIndicatorEntity {
                     return;
                 }
 
-                armorStand.remove();
+                DamageSource customDamage = DamageSource.builder((DamageType) DamageSource.builder(DamageType.EXPLOSION)).build();
+                armorStand.damage(100, customDamage); 
 
             }
         };
-        mageMobAttackRate.runTaskTimer(minigamePlugin, 40L, 20L);*/
+        mageMobAttackRate.runTaskTimer(minigamePlugin, 40L, 20L);
 
 
 
-        TextDisplay textDisplay = (TextDisplay) world.spawnEntity(location, EntityType.TEXT_DISPLAY);
-
-
-        textDisplay.setSeeThrough(false);
-        textDisplay.setShadowed(true);
-        textDisplay.setBackgroundColor(Color.AQUA); 
-
-        if (damageAmount <= 1) {
-            textDisplay.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + damageAmount + ChatColor.GREEN + "❤");
-        } else if (damageAmount > 1 && damageAmount <= 2) {
-            textDisplay.setCustomName(ChatColor.DARK_GREEN + "" + ChatColor.BOLD + damageAmount + ChatColor.DARK_GREEN + "❤");
-        } else if (damageAmount > 2 && damageAmount <= 3) {
-            textDisplay.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + damageAmount + ChatColor.YELLOW + "❤");
-        } else if (damageAmount > 3 && damageAmount <= 4) {
-            textDisplay.setCustomName(ChatColor.GOLD + "" + ChatColor.BOLD + damageAmount + ChatColor.GOLD + "❤");
-        } else if (damageAmount > 4 && damageAmount <= 5) {
-            textDisplay.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + damageAmount + ChatColor.RED + "❤");
-        } else if (damageAmount > 5 && damageAmount <= 6) {
-            textDisplay.setCustomName(ChatColor.DARK_RED + "" + ChatColor.BOLD + damageAmount + ChatColor.DARK_RED + "❤");
-        } else if (damageAmount > 6 && damageAmount <= 7) {
-            textDisplay.setCustomName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + damageAmount + ChatColor.LIGHT_PURPLE + "❤");
-        } else if (damageAmount > 7) {
-            textDisplay.setCustomName(ChatColor.BLACK + "" + ChatColor.BOLD + damageAmount + ChatColor.BLACK + "❤");
-        }
 
 
 
