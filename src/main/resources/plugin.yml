@@ -2,3 +2,10 @@ name: MinigamePlugin
 version: '${project.version}'
 main: mod.minigameplugin.MinigamePlugin
 api-version: '1.21'
+
+commands:
+  readitemorblockdata:
+    description: Lets you read the data of a item or block
+    usage: /readitemorblockdata <setting>
+    permission: lifestealSMP.admin
+    default: op
