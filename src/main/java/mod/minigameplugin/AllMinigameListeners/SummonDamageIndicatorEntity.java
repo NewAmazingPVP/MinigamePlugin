@@ -65,10 +65,10 @@ public class SummonDamageIndicatorEntity {
             @Override
             public void run() {
 
-                if (armorStand.isDead()) {
+                /*if (armorStand.isDead()) {
                     this.cancel();
                     return;
-                }
+                }*/
 
                 Bukkit.broadcastMessage("test123");
 
