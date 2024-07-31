@@ -1,5 +1,6 @@
 package mod.minigameplugin.AllMinigameListeners;
 
+import io.papermc.paper.event.entity.EntityMoveEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -41,6 +42,17 @@ public class HitIndicator implements Listener {
 
         new SummonDamageIndicatorEntity(location, damageAmount, world);
 
+
+    }
+
+    @EventHandler
+    public void armorstandMove(EntityMoveEvent e){
+
+        Entity entity = e.getEntity();
+
+        if(entity instanceof ArmorStand){
+            entity.remove();
+        }
 
     }
 

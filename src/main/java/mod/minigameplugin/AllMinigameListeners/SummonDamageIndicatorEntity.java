@@ -27,6 +27,10 @@ public class SummonDamageIndicatorEntity {
         armorStand.setGravity(true);
         armorStand.setCustomNameVisible(true);
 
+        String customTag = "damage_indicator";
+        MetadataValue customTagValue = new FixedMetadataValue(minigamePlugin, customTag);
+        armorStand.setMetadata(customTag, customTagValue);
+
         if (damageAmount <= 1) {
             armorStand.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + damageAmount + ChatColor.GREEN + "❤");
         } else if (damageAmount > 1 && damageAmount <= 2) {
