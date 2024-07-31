@@ -17,7 +17,7 @@ import static mod.minigameplugin.MinigamePlugin.minigamePlugin;
 
 public class SummonDamageIndicatorEntity {
 
-    public static BukkitRunnable mageMobAttackRate;
+    public static BukkitRunnable killDamageIndicatorRun;
 
     public SummonDamageIndicatorEntity(Location location, Double damageAmount, World world) {
 
@@ -61,23 +61,22 @@ public class SummonDamageIndicatorEntity {
         armorStand.setVelocity(velocity);
 
 
-        mageMobAttackRate = new BukkitRunnable() {
+        killDamageIndicatorRun = new BukkitRunnable() {
             @Override
             public void run() {
 
-                /*if (armorStand.isDead()) {
+                if (armorStand.isDead()) {
                     this.cancel();
                     return;
-                }*/
-
-                Bukkit.broadcastMessage("test123");
+                }
+                
 
                 DamageSource customDamage = DamageSource.builder((DamageType) DamageSource.builder(DamageType.EXPLOSION)).build();
                 armorStand.damage(100, customDamage);
 
             }
         };
-        mageMobAttackRate.runTaskTimer(minigamePlugin, 40L, 20L);
+        killDamageIndicatorRun.runTaskTimer(minigamePlugin, 40L, 20L);
 
 
 
