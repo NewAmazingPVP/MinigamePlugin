@@ -79,8 +79,9 @@ public class SummonDamageIndicatorEntity {
         TextDisplay textDisplay = (TextDisplay) world.spawnEntity(location, EntityType.TEXT_DISPLAY);
 
 
-        textDisplay.setSeeThrough(true);
-        textDisplay.setShadowed(true); 
+        textDisplay.setSeeThrough(false);
+        textDisplay.setShadowed(true);
+        textDisplay.setBackgroundColor(Color.AQUA); 
 
         if (damageAmount <= 1) {
             textDisplay.setCustomName(ChatColor.GREEN + "" + ChatColor.BOLD + damageAmount + ChatColor.GREEN + "❤");
