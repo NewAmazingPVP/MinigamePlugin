@@ -9,3 +9,8 @@ commands:
     usage: /readitemorblockdata <setting>
     permission: lifestealSMP.admin
     default: op
+  setview:
+    description: Set render and sim distance
+    usage: /setview <render> <sim>
+    permission: lifestealSMP.admin
+    default: op
