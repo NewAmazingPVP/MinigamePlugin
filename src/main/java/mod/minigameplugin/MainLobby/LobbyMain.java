@@ -14,14 +14,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class LobbyMain implements Listener {
 
-    @EventHandler
+    /*@EventHandler
     public void playerJoin(PlayerJoinEvent e){
 
         Player player = e.getPlayer();
         player.getInventory().setItem(0, mainLobbyGamesSelector());
 
 
-    }
+    }*/
 
 
     public static ItemStack mainLobbyGamesSelector() {
