@@ -21,10 +21,10 @@ public class StartZombieGame implements CommandExecutor, TabCompleter {
 
         switch (args[0].toLowerCase()) {
             case "start":
-                zombieGameRunning = true;
+                isZombieGameRunning = true;
                 break;
             case "stop":
-                zombieGameRunning = false;
+                isZombieGameRunning = false;
                 break;
             default:
                 sender.sendMessage("Error.");
