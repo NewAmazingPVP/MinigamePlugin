@@ -72,7 +72,7 @@ public class TestGun1 {
                                 }
                             }
                         }else{
-                            attacker.sendMessage(ChatColor.RED + "Out Of Ammo"); 
+                            attacker.sendMessage(ChatColor.RED + "Out Of Ammo");
                         }
                     }
                 }
