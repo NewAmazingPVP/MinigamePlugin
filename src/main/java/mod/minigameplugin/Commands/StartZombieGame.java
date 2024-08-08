@@ -1,5 +1,6 @@
 package mod.minigameplugin.Commands;
 
+import mod.minigameplugin.ZombieSurvivalGame.ZombieGameMain;
 import org.bukkit.Location;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
@@ -21,10 +22,10 @@ public class StartZombieGame implements CommandExecutor, TabCompleter {
 
         switch (args[0].toLowerCase()) {
             case "start":
-                isZombieGameRunning = true;
+                ZombieGameMain.isZombieGameRunning = true;
                 break;
             case "stop":
-                isZombieGameRunning = false;
+                ZombieGameMain.isZombieGameRunning = false;
                 break;
             default:
                 sender.sendMessage("Error.");
