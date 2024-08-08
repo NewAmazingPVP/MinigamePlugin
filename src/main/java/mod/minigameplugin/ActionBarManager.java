@@ -14,7 +14,6 @@ public class ActionBarManager {
     public static HashMap<Player, String> linkPlayerToStringForActionBar = new HashMap<>();
 
 
-
     @EventHandler
     public void playerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
