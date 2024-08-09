@@ -9,8 +9,10 @@ import mod.minigameplugin.Commands.readBlockAndItemInfo;
 import mod.minigameplugin.MainLobby.LobbyMain;
 import mod.minigameplugin.MainLobby.RandomCoinPickup;
 import mod.minigameplugin.Minigames.Zombies.ZombiesGuns.GUN_UTILS;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Statistic;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,6 +28,8 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
 
     public static MinigamePlugin minigamePlugin;
     public static Essentials essentials;
+
+    public static World curentWorld = Bukkit.getWorld("world");
 
     private final Map<UUID, FastBoard> boards = new HashMap<>();
 
