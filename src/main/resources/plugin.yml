@@ -14,3 +14,8 @@ commands:
     usage: /setview <render> <sim>
     permission: lifestealSMP.admin
     default: op
+  zombiegame:
+    description: Start and stop zombie game
+    usage: /zombiegame <start or stop>
+    permission: lifestealSMP.admin
+    default: op
