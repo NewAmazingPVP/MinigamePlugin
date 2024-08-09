@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
+import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameMain.startZombieGame;
+
 public class StartZombieGame implements CommandExecutor, TabCompleter {
 
     private final ArrayList<String> subcommands = new ArrayList<>(List.of("start", "stop"));
@@ -23,6 +25,7 @@ public class StartZombieGame implements CommandExecutor, TabCompleter {
         switch (args[0].toLowerCase()) {
             case "start":
                 ZombieGameMain.isZombieGameRunning = true;
+                startZombieGame();
                 break;
             case "stop":
                 ZombieGameMain.isZombieGameRunning = false;
