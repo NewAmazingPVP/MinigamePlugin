@@ -26,15 +26,15 @@ public class Pistol implements Listener {
         ItemStack itemInHand = attacker.getInventory().getItemInMainHand();
         ItemMeta meta = itemInHand.getItemMeta();
         if (event.getAction().name().contains("RIGHT_CLICK") && event.getItem() != null) {
-            attacker.sendMessage("test1");
+
             if (itemInHand != null && itemInHand.hasItemMeta()) {
 
 
-                    //if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
+
 
                         if (meta.getLore().toString().contains("ID: pistol")) {
 
-                            attacker.sendMessage("test2");
+
 
                             List<String> lore = meta.hasLore() ? meta.getLore() : new ArrayList<>();
 
@@ -42,7 +42,7 @@ public class Pistol implements Listener {
 
                             int currentBulletCountInt = 0;
 
-                            attacker.sendMessage("test3");
+
 
                         for (char c : currentBulletCountString.toCharArray()) {
                             if (Character.isDigit(c)) {
@@ -50,11 +50,14 @@ public class Pistol implements Listener {
                             }
                         }
 
-                        attacker.sendMessage(" " + currentBulletCountInt);
+                            attacker.sendMessage(" " + currentBulletCountInt);
 
-                        currentBulletCountInt -= 1;
+                            currentBulletCountInt -= 1;
 
-                        attacker.getInventory().setItemInMainHand(pistol(false, currentBulletCountInt));
+                            attacker.sendMessage(" " + currentBulletCountInt);
+
+                            attacker.getInventory().setItemInMainHand(null);
+                            attacker.getInventory().setItemInMainHand(pistol(false, currentBulletCountInt));
 
                         if (currentBulletCountInt >= 1) {
 
@@ -81,12 +84,12 @@ public class Pistol implements Listener {
                                 Entity target = getTargetEntityAtLocation(targetLocation);
                                 if (target != null) {
                                     if (target instanceof Entity) {
-                                        if (event.getItem().getType() == Material.STICK) {
+                                        //if (event.getItem().getType() == Material.STICK) {
 
                                             //Things you want staff to do goes here
 
                                             ((LivingEntity) target).damage(1);
-                                        }
+                                        //}
                                     }
                                     break;
                                 }
@@ -102,7 +105,6 @@ public class Pistol implements Listener {
                 }
             }
         }
-    //}
 
     private Entity getTargetEntityAtLocation(Location location) {
         for (Entity target : location.getWorld().getEntities()) {
