@@ -30,7 +30,7 @@ public class Pistol implements Listener {
             if (itemInHand != null && itemInHand.hasItemMeta()) {
 
 
-                    if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
+                    //if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
                         if (meta.getLore().toString().contains("ID: pistol")) {
 
@@ -102,7 +102,7 @@ public class Pistol implements Listener {
                 }
             }
         }
-    }
+    //}
 
     private Entity getTargetEntityAtLocation(Location location) {
         for (Entity target : location.getWorld().getEntities()) {
