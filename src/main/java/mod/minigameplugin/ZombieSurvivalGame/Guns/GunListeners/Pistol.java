@@ -29,11 +29,12 @@ public class Pistol implements Listener {
             attacker.sendMessage("test1");
             if (itemInHand != null && itemInHand.hasItemMeta()) {
 
-                    attacker.sendMessage("test2");
 
                     if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
-                        if (meta.hasLore() && meta.getItemName().toString().contains("Pistol")) {
+                        if (meta.getLore().toString().contains("Pistol")) {
+
+                            attacker.sendMessage("test2");
 
                             List<String> lore = meta.hasLore() ? meta.getLore() : new ArrayList<>();
 
