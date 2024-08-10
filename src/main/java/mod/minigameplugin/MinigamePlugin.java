@@ -10,6 +10,7 @@ import mod.minigameplugin.Commands.readBlockAndItemInfo;
 import mod.minigameplugin.MainLobby.LobbyMain;
 import mod.minigameplugin.MainLobby.RandomCoinPickup;
 import mod.minigameplugin.Minigames.Zombies.ZombiesGuns.GUN_UTILS;
+import mod.minigameplugin.ZombieSurvivalGame.Guns.GunListeners.Pistol;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Statistic;
@@ -38,10 +39,11 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new ActionBarDamageIndicator(), this);
-        getServer().getPluginManager().registerEvents(new LobbyMain(), this);
+        getServer().getPluginManager().registerEvents(new Pistol(), this);
+        //getServer().getPluginManager().registerEvents(new LobbyMain(), this);
         //getServer().getPluginManager().registerEvents(new HitIndicator(), this);
-        getServer().getPluginManager().registerEvents(new RandomCoinPickup(), this);
-        getServer().getPluginManager().registerEvents(new GUN_UTILS(), this);
+        //getServer().getPluginManager().registerEvents(new RandomCoinPickup(), this);
+        //getServer().getPluginManager().registerEvents(new GUN_UTILS(), this);
 
         getCommand("readitemorblockdata").setExecutor(new readBlockAndItemInfo());
         getCommand("setview").setExecutor(new CustomDistance());
