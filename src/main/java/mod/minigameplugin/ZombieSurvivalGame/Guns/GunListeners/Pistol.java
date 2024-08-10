@@ -32,7 +32,7 @@ public class Pistol implements Listener {
 
                     if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
-                        if (meta.getLore().toString().contains("Pistol")) {
+                        if (meta.getLore().toString().contains("ID: pistol")) {
 
                             attacker.sendMessage("test2");
 
