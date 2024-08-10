@@ -37,6 +37,7 @@ public class GunItemStacks {
             lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click]" + ChatColor.DARK_PURPLE + " To Fire.");
             lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Left Click]" + ChatColor.DARK_PURPLE + " To Reload.");
             lore.add("" + bulletCount);
+            //lore.add(ChatColor.DARK_GRAY + "ID: pistol");
             meta.setLore(lore);
 
 
