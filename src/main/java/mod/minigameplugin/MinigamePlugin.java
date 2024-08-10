@@ -5,6 +5,7 @@ import fr.mrmicky.fastboard.FastBoard;
 import mod.minigameplugin.AllMinigameListeners.ActionBarDamageIndicator;
 import mod.minigameplugin.AllMinigameListeners.HitIndicator;
 import mod.minigameplugin.Commands.CustomDistance;
+import mod.minigameplugin.Commands.GiveZombiesGunCMD;
 import mod.minigameplugin.Commands.StartZombieGame;
 import mod.minigameplugin.Commands.readBlockAndItemInfo;
 import mod.minigameplugin.MainLobby.LobbyMain;
@@ -48,6 +49,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getCommand("readitemorblockdata").setExecutor(new readBlockAndItemInfo());
         getCommand("setview").setExecutor(new CustomDistance());
         getCommand("zombiegame").setExecutor(new StartZombieGame());
+        getCommand("givezombiesitem").setExecutor(new GiveZombiesGunCMD());
 
         getServer().getScheduler().runTaskTimer(this, () -> {
             for (FastBoard board : this.boards.values()) {
