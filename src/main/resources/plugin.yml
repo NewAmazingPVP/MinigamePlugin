@@ -19,3 +19,8 @@ commands:
     usage: /zombiegame <start or stop>
     permission: lifestealSMP.admin
     default: op
+  givezombiesitem:
+    description: Gives items from the zombie game
+    usage: /givezombiesitem <item>
+    permission: lifestealSMP.admin
+    default: op
