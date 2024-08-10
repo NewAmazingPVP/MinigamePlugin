@@ -33,7 +33,7 @@ public class Pistol implements Listener {
 
                     if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
-                        if (meta.hasLore() && meta.getDisplayName().toString().contains("Pistol")) {
+                        if (meta.hasLore() && meta.getItemName().toString().contains("Pistol")) {
 
                             List<String> lore = meta.hasLore() ? meta.getLore() : new ArrayList<>();
 
