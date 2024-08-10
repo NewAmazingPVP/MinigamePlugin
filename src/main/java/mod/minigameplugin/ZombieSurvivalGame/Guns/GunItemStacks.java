@@ -1,4 +1,4 @@
-package mod.minigameplugin.Minigames.Zombies;
+package mod.minigameplugin.ZombieSurvivalGame.Guns;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -8,9 +8,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZombiesItemStacks {
+public class GunItemStacks {
 
-    /*public static ItemStack testGun(Boolean reloading, Integer bulletCount) {
+    public static ItemStack pistol(Boolean reloading, Integer bulletCount) {
         ItemStack testGun = new ItemStack(Material.WOODEN_HOE);
         ItemMeta meta = testGun.getItemMeta();
 
@@ -18,24 +18,25 @@ public class ZombiesItemStacks {
         if(!reloading) {
 
             if(bulletCount / 100 > .50) {
-                meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Test Gun" + ChatColor.DARK_GREEN + " | " + bulletCount);
+                meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Pistol" + ChatColor.DARK_GREEN + " | " + bulletCount);
             }
 
             if(bulletCount / 100 <= .50 && bulletCount / 100 > .10) {
-                meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Test Gun" + ChatColor.YELLOW + " | " + bulletCount);
+                meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Pistol" + ChatColor.YELLOW + " | " + bulletCount);
             }
 
             if(bulletCount / 100 <= .10) {
-                meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Test Gun" + ChatColor.DARK_RED + " | ⚠ " + bulletCount + " ⚠");
+                meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Pistol" + ChatColor.DARK_RED + " | ⚠ " + bulletCount + " ⚠");
             }
 
             if(bulletCount / 100 <= 0) {
-                meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Test Gun" + ChatColor.DARK_RED + " | ⚠ EMPTY ⚠ " + ChatColor.YELLOW + "Left Click To Reload!");
+                meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Pistol" + ChatColor.DARK_RED + " | ⚠ EMPTY ⚠ " + ChatColor.YELLOW + "Left Click To Reload!");
             }
 
             List<String> lore = new ArrayList<>();
             lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click]" + ChatColor.DARK_PURPLE + " To Fire.");
             lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Left Click]" + ChatColor.DARK_PURPLE + " To Reload.");
+            lore.add("" + bulletCount);
             meta.setLore(lore);
 
 
@@ -47,8 +48,6 @@ public class ZombiesItemStacks {
 
         testGun.setItemMeta(meta);
         return testGun;
-    }*/
-
-
+    }
 
 }

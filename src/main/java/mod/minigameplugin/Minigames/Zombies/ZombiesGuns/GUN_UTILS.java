@@ -62,12 +62,12 @@ public class GUN_UTILS implements Listener {
     public void playerMove(PlayerMoveEvent e) {
         Player player = e.getPlayer();
         Inventory inv = player.getInventory();
-        scanForMoreThan1Gun(player,inv);
+        //scanForMoreThan1Gun(player,inv);
 
     }
 
 
-    private static void scanForMoreThan1Gun(Player player, Inventory inv){
+    /*private static void scanForMoreThan1Gun(Player player, Inventory inv){
         int numOfGuns = 0;
 
         ItemStack[] items = inv.getContents();
@@ -90,7 +90,7 @@ public class GUN_UTILS implements Listener {
                 }
             }
         }
-    }
+    }*/
 
 
 

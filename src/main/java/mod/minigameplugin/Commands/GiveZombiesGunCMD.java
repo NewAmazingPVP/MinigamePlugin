@@ -13,13 +13,14 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-import static mod.minigameplugin.Minigames.Zombies.ZombiesItemStacks.testGun;
+import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunItemStacks.pistol;
+
 
 public class GiveZombiesGunCMD implements CommandExecutor, TabCompleter {
 
 
     private final ArrayList<String> subcommands = new ArrayList<>(List.of("testgun"));
-    private final ArrayList<ItemStack> subItems = new ArrayList<>(List.of(testGun(false, 0)));
+    private final ArrayList<ItemStack> subItems = new ArrayList<>(List.of(pistol(false, 15)));
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
