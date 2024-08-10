@@ -28,18 +28,20 @@ public class Pistol implements Listener {
         if (event.getAction().name().contains("RIGHT_CLICK") && event.getItem() != null) {
             attacker.sendMessage("test1");
             if (itemInHand != null && itemInHand.hasItemMeta()) {
-                if (meta.hasLore() && meta.getLore().toString().contains("Pistol")) {
+
                     attacker.sendMessage("test2");
 
                     if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
-                        List<String> lore = meta.hasLore() ? meta.getLore() : new ArrayList<>();
+                        if (meta.hasLore() && meta.getItemName().toString().contains("Pistol")) {
 
-                        String currentBulletCountString = lore.get(3); //<<<<<<<<<<<<<<<<<<< CHANGE IF NEEDED
+                            List<String> lore = meta.hasLore() ? meta.getLore() : new ArrayList<>();
 
-                        int currentBulletCountInt = 0;
+                            String currentBulletCountString = lore.get(3); //<<<<<<<<<<<<<<<<<<< CHANGE IF NEEDED
 
-                        attacker.sendMessage("test3");
+                            int currentBulletCountInt = 0;
+
+                            attacker.sendMessage("test3"); 
 
                         for (char c : currentBulletCountString.toCharArray()) {
                             if (Character.isDigit(c)) {
