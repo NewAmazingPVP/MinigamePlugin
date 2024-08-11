@@ -14,7 +14,6 @@ import org.bukkit.util.Vector;
 import java.util.ArrayList;
 import java.util.List;
 
-import static mod.minigameplugin.Minigames.Zombies.ZombiesGuns.GUN_UTILS.linkPlayerToBulletCount;
 
 public class TestGun1 {
 
@@ -31,9 +30,9 @@ public class TestGun1 {
 
                     if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
 
-                        int bulletCount = linkPlayerToBulletCount.get(attacker);
+                        //int bulletCount = linkPlayerToBulletCount.get(attacker);
 
-                        if (bulletCount > 0) {
+                        //if (bulletCount > 0) {
 
                             Location location = attacker.getEyeLocation().add(0, 0.2, 0);
                             Vector attackerLookDir = attacker.getLocation().getDirection().multiply(0.1);
@@ -78,7 +77,7 @@ public class TestGun1 {
                 }
             }
         }
-    }
+    //}
 
     private Entity getTargetEntityAtLocation(Location location) {
         for (Entity target : location.getWorld().getEntities()) {

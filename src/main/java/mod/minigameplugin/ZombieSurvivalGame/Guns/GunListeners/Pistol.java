@@ -15,7 +15,6 @@ import org.bukkit.util.Vector;
 import java.util.ArrayList;
 import java.util.List;
 
-import static mod.minigameplugin.Minigames.Zombies.ZombiesGuns.GUN_UTILS.linkPlayerToBulletCount;
 import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunItemStacks.pistol;
 
 public class Pistol implements Listener {
@@ -43,12 +42,6 @@ public class Pistol implements Listener {
                             double currentBulletCountInt = Double.parseDouble(currentBulletCountString.replaceAll("[^1-9]",""));
 
 
-
-                        /*for (char c : currentBulletCountString.toCharArray()) {
-                            if (Character.isDigit(c)) {
-                                currentBulletCountInt += c;
-                            }
-                        }*/
 
                             attacker.sendMessage(" " + currentBulletCountInt);
 
