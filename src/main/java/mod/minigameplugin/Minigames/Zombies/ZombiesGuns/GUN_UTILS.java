@@ -21,16 +21,14 @@ import java.util.Map;
 
 public class GUN_UTILS implements Listener {
 
-    public static void gunReloadAnimation() {
 
-    }
 
 
 
 
     //AMMO COUNT MANAGER
 
-    public static HashMap<Player, Integer> linkPlayerToBulletCount = new HashMap<>();
+    /*public static HashMap<Player, Integer> linkPlayerToBulletCount = new HashMap<>();
 
 
     @EventHandler
@@ -46,7 +44,7 @@ public class GUN_UTILS implements Listener {
 
     private static boolean isPlayerInHashMap(Player player) {
         return linkPlayerToBulletCount.containsKey(player);
-    }
+    }*/
 
 
 
