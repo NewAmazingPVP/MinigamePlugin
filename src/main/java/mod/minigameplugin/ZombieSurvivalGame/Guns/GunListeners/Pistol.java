@@ -40,7 +40,7 @@ public class Pistol implements Listener {
 
                             String currentBulletCountString = lore.get(3); //<<<<<<<<<<<<<<<<<<< CHANGE IF NEEDED
 
-                            int currentBulletCountInt = 0;
+                            double currentBulletCountInt = 0;
 
 
 

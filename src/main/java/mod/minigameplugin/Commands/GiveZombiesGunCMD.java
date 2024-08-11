@@ -20,7 +20,7 @@ public class GiveZombiesGunCMD implements CommandExecutor, TabCompleter {
 
 
     private final ArrayList<String> subcommands = new ArrayList<>(List.of("testgun"));
-    private final ArrayList<ItemStack> subItems = new ArrayList<>(List.of(pistol(false, 15)));
+    private final ArrayList<ItemStack> subItems = new ArrayList<>(List.of(pistol(false, 15.0)));
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

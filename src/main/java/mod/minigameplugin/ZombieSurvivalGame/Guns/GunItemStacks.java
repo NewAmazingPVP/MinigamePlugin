@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GunItemStacks {
 
-    public static ItemStack pistol(Boolean reloading, Integer bulletCount) {
+    public static ItemStack pistol(Boolean reloading, Double bulletCount) {
         ItemStack testGun = new ItemStack(Material.WOODEN_HOE);
         ItemMeta meta = testGun.getItemMeta();
 
@@ -19,17 +19,14 @@ public class GunItemStacks {
 
             if(bulletCount / 100 > .50) {
                 meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Pistol" + ChatColor.DARK_GREEN + " | " + bulletCount);
-            }
 
-            if(bulletCount / 100 <= .50 && bulletCount / 100 > .10) {
+            }else if(bulletCount / 100 <= .50 && bulletCount / 100 > .10) {
                 meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Pistol" + ChatColor.YELLOW + " | " + bulletCount);
-            }
 
-            if(bulletCount / 100 <= .10) {
+            }else if(bulletCount / 100 <= .10 && bulletCount / 100 > 0) {
                 meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Pistol" + ChatColor.DARK_RED + " | ⚠ " + bulletCount + " ⚠");
-            }
 
-            if(bulletCount / 100 <= 0) {
+            }else if(bulletCount / 100 <= 0) {
                 meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "[GUN] " + ChatColor.AQUA + "" + ChatColor.BOLD + "Pistol" + ChatColor.DARK_RED + " | ⚠ EMPTY ⚠ " + ChatColor.YELLOW + "Left Click To Reload!");
             }
 
