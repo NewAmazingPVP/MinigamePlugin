@@ -40,19 +40,19 @@ public class Pistol implements Listener {
 
                             String currentBulletCountString = lore.get(3); //<<<<<<<<<<<<<<<<<<< CHANGE IF NEEDED
 
-                            double currentBulletCountInt = 0;
+                            double currentBulletCountInt = Double.parseDouble(currentBulletCountString.replaceAll("[^1-9]",""));
 
 
 
-                        for (char c : currentBulletCountString.toCharArray()) {
+                        /*for (char c : currentBulletCountString.toCharArray()) {
                             if (Character.isDigit(c)) {
                                 currentBulletCountInt += c;
                             }
-                        }
+                        }*/
 
                             attacker.sendMessage(" " + currentBulletCountInt);
 
-                            currentBulletCountInt -= 1;
+                            currentBulletCountInt -= 1.0;
 
                             attacker.sendMessage(" " + currentBulletCountInt);
 
