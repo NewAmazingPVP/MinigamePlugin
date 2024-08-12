@@ -69,7 +69,7 @@ public class SummonDamageIndicatorEntity {
                     this.cancel();
                     return;
                 }
-                
+
 
                 DamageSource customDamage = DamageSource.builder((DamageType) DamageSource.builder(DamageType.EXPLOSION)).build();
                 armorStand.damage(100, customDamage);
