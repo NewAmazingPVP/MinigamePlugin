@@ -53,7 +53,7 @@ public class GunUtils implements Listener {
 
                 mageMobAttackRate = new BukkitRunnable() {
                     int bulletCount = 15;
-                    
+
                     @Override
                     public void run() {
 
