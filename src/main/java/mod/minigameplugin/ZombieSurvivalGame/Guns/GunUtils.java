@@ -14,7 +14,7 @@ public class GunUtils implements Listener {
 
     //Ammo manager
 
-    public static HashMap<Player, Integer> linkPlayerToBulletCount = new HashMap<>();
+    public static HashMap<Player, Integer> linkPlayerToPistolBulletCount = new HashMap<>();
 
 
     @EventHandler
@@ -23,13 +23,13 @@ public class GunUtils implements Listener {
 
         if (!isPlayerInHashMap(player)) {
 
-            linkPlayerToBulletCount.put(player, 0);
+            linkPlayerToPistolBulletCount.put(player, 0);
 
         }
     }
 
     private static boolean isPlayerInHashMap(Player player) {
-        return linkPlayerToBulletCount.containsKey(player);
+        return linkPlayerToPistolBulletCount.containsKey(player);
     }
 
 
