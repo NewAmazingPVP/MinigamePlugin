@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunItemStacks.pistol;
+import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils.linkPlayerToPistolBulletCount;
 
 public class Pistol implements Listener {
 
@@ -29,75 +30,63 @@ public class Pistol implements Listener {
             if (itemInHand != null && itemInHand.hasItemMeta()) {
 
 
+                if (meta.getLore().toString().contains("ID: pistol")) {
+
+                    int currentAmmo = linkPlayerToPistolBulletCount.get(attacker);
+
+                    attacker.sendMessage(String.valueOf(currentAmmo));
+
+                    if (currentAmmo >= 1) {
+
+                        currentAmmo -=1;
+
+                        linkPlayerToPistolBulletCount.put(attacker, linkPlayerToPistolBulletCount.getOrDefault(attacker, 0) - 1); 
 
 
-                        if (meta.getLore().toString().contains("ID: pistol")) {
+                        Location location = attacker.getEyeLocation().add(0, 0.2, 0);
+                        Vector attackerLookDir = attacker.getLocation().getDirection().multiply(0.1);
+                        Vector direction = attacker.getEyeLocation().getDirection();
+                        Location targetLocation = attacker.getEyeLocation().clone();
+                        double range = 500;
 
 
-
-                            List<String> lore = meta.hasLore() ? meta.getLore() : new ArrayList<>();
-
-                            String currentBulletCountString = lore.get(3); //<<<<<<<<<<<<<<<<<<< CHANGE IF NEEDED
-
-                            double currentBulletCountInt = Double.parseDouble(currentBulletCountString.replaceAll("[^1-9]",""));
+                        for (double i = 0; i < 150; i++) {
+                            location.add(attackerLookDir);
+                            for (Player player2 : Bukkit.getOnlinePlayers()) {
+                                player2.getWorld().spawnParticle(Particle.END_ROD, location, 0);
 
 
-
-                            attacker.sendMessage(" " + currentBulletCountInt);
-
-                            currentBulletCountInt -= 1.0;
-
-                            attacker.sendMessage(" " + currentBulletCountInt);
-
-                            attacker.getInventory().setItemInMainHand(null);
-                            attacker.getInventory().setItemInMainHand(pistol(false, currentBulletCountInt));
-
-                        if (currentBulletCountInt >= 1) {
-
-
-                            Location location = attacker.getEyeLocation().add(0, 0.2, 0);
-                            Vector attackerLookDir = attacker.getLocation().getDirection().multiply(0.1);
-                            Vector direction = attacker.getEyeLocation().getDirection();
-                            Location targetLocation = attacker.getEyeLocation().clone();
-                            double range = 500;
-
-
-                            for (double i = 0; i < 150; i++) {
-                                location.add(attackerLookDir);
-                                for (Player player2 : Bukkit.getOnlinePlayers()) {
-                                    player2.getWorld().spawnParticle(Particle.END_ROD, location, 0);
-
-
-                                }
                             }
-
-                            for (int i = 0; i < range; i++) {
-                                targetLocation.add(direction);
-
-                                Entity target = getTargetEntityAtLocation(targetLocation);
-                                if (target != null) {
-                                    if (target instanceof Entity) {
-                                        //if (event.getItem().getType() == Material.STICK) {
-
-                                            //Things you want staff to do goes here
-
-                                            ((LivingEntity) target).damage(1);
-                                        //}
-                                    }
-                                    break;
-                                }
-                                // Target location is obstructed by a block
-                                if (targetLocation.getBlock().getType().isSolid()) {
-                                    break;
-                                }
-                            }
-                        } else {
-                            attacker.sendMessage(ChatColor.RED + "Out Of Ammo");
                         }
+
+                        for (int i = 0; i < range; i++) {
+                            targetLocation.add(direction);
+
+                            Entity target = getTargetEntityAtLocation(targetLocation);
+                            if (target != null) {
+                                if (target instanceof Entity) {
+                                    //if (event.getItem().getType() == Material.STICK) {
+
+                                    //Things you want staff to do goes here
+
+                                    ((LivingEntity) target).damage(1);
+                                    //}
+                                }
+                                break;
+                            }
+                            // Target location is obstructed by a block
+                            if (targetLocation.getBlock().getType().isSolid()) {
+                                break;
+                            }
+                        }
+                    } else {
+                        attacker.sendMessage(ChatColor.RED + "Out Of Ammo: Left Click To Reload!");
                     }
                 }
             }
         }
+    }
+
 
     private Entity getTargetEntityAtLocation(Location location) {
         for (Entity target : location.getWorld().getEntities()) {
