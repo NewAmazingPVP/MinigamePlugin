@@ -43,13 +43,11 @@ public class GunUtils implements Listener {
 
     public static void reloadGun(Player player, String gunType){
 
-        BukkitRunnable mageMobAttackRate;
-
         switch (gunType) {
 
             case "PISTOL":
 
-
+                BukkitRunnable mageMobAttackRate;
 
                 mageMobAttackRate = new BukkitRunnable() {
                     int bulletCount = 15;
@@ -57,13 +55,13 @@ public class GunUtils implements Listener {
                     @Override
                     public void run() {
 
-                        if (bulletCount >= 15) {
+                        if (bulletCount <= 0) {
                             player.getInventory().setItemInMainHand(pistol(false, linkPlayerToPistolBulletCount.get(player)));
                             this.cancel();
                             return;
                         }
 
-                        bulletCount += 1;
+                        bulletCount -= 1;
 
                         player.getInventory().setItem(0, pistol(true, linkPlayerToPistolBulletCount.get(player)));
                         linkPlayerToPistolBulletCount.put(player, linkPlayerToPistolBulletCount.getOrDefault(player, 0) + 1);
