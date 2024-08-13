@@ -47,15 +47,24 @@ public class GunUtils implements Listener {
 
             case "PISTOL":
 
+                player.sendMessage("test1");
+
                 BukkitRunnable mageMobAttackRate;
 
+                player.sendMessage("test2");
+
                 mageMobAttackRate = new BukkitRunnable() {
+
+
                     int bulletCount = 15;
 
                     @Override
                     public void run() {
 
+                        player.sendMessage("test3");
+
                         if (bulletCount <= 0) {
+                            player.sendMessage("stoped");
                             player.getInventory().setItemInMainHand(pistol(false, linkPlayerToPistolBulletCount.get(player)));
                             this.cancel();
                             return;
