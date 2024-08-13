@@ -10,7 +10,6 @@ import mod.minigameplugin.Commands.StartZombieGame;
 import mod.minigameplugin.Commands.readBlockAndItemInfo;
 import mod.minigameplugin.MainLobby.LobbyMain;
 import mod.minigameplugin.MainLobby.RandomCoinPickup;
-import mod.minigameplugin.Minigames.Zombies.ZombiesGuns.GUN_UTILS;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunListeners.Pistol;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils;
 import org.bukkit.Bukkit;

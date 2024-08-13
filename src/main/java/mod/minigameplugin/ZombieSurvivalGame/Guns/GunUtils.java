@@ -23,10 +23,11 @@ public class GunUtils implements Listener {
 
         if (!isPlayerInHashMap(player)) {
 
-            linkPlayerToPistolBulletCount.put(player, 0);
+            linkPlayerToPistolBulletCount.put(player, 10);
 
         }
     }
+
 
     private static boolean isPlayerInHashMap(Player player) {
         return linkPlayerToPistolBulletCount.containsKey(player);
