@@ -5,9 +5,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
 
+import static mod.minigameplugin.MinigamePlugin.minigamePlugin;
 import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunItemStacks.pistol;
 
 public class GunUtils implements Listener {
@@ -37,21 +39,44 @@ public class GunUtils implements Listener {
     }
 
 
+
+
     public static void reloadGun(Player player, String gunType){
 
+        BukkitRunnable mageMobAttackRate;
 
         switch (gunType) {
 
             case "PISTOL":
-                for(int i = 1; i <= 15; i++) {
-                    player.getInventory().setItem(0, pistol(true, linkPlayerToPistolBulletCount.get(player))); 
-                    linkPlayerToPistolBulletCount.put(player, linkPlayerToPistolBulletCount.getOrDefault(player, 0) + 1);
-                }
-                player.getInventory().setItemInMainHand(pistol(false, linkPlayerToPistolBulletCount.get(player)));
+
+
+
+                mageMobAttackRate = new BukkitRunnable() {
+                    int bulletCount = 15;
+                    
+                    @Override
+                    public void run() {
+
+                        if (bulletCount >= 15) {
+                            player.getInventory().setItemInMainHand(pistol(false, linkPlayerToPistolBulletCount.get(player)));
+                            this.cancel();
+                            return;
+                        }
+
+                        bulletCount += 1;
+
+                        player.getInventory().setItem(0, pistol(true, linkPlayerToPistolBulletCount.get(player)));
+                        linkPlayerToPistolBulletCount.put(player, linkPlayerToPistolBulletCount.getOrDefault(player, 0) + 1);
+
+
+                    }
+                };mageMobAttackRate.runTaskTimer(minigamePlugin, 0L, 20L); // Start immediately and repeat every second
+
                 break;
             default:
                 player.sendMessage(ChatColor.RED + "[ERROR] plz report this =(");
         }
+
 
 
 
