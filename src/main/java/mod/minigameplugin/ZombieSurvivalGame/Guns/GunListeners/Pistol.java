@@ -16,8 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunItemStacks.pistol;
-import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils.linkPlayerToPistolBulletCount;
-import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils.reloadGun;
+import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils.*;
 
 public class Pistol implements Listener {
 
@@ -38,20 +37,22 @@ public class Pistol implements Listener {
 
 
                 Location location = attacker.getEyeLocation().add(0, 0.2, 0);
-                Vector attackerLookDir = attacker.getLocation().getDirection().multiply(0.1);
+                Vector attackerLookDir = attacker.getLocation().getDirection().multiply(.5);
                 Vector direction = attacker.getEyeLocation().getDirection();
                 Location targetLocation = attacker.getEyeLocation().clone();
                 double range = 500;
 
 
-                for (double i = 0; i < 150; i++) {
+                for (double i = 0; i < 10; i++) {
                     location.add(attackerLookDir);
                     for (Player player2 : Bukkit.getOnlinePlayers()) {
-                        player2.getWorld().spawnParticle(Particle.END_ROD, location, 0);
+                        player2.getWorld().spawnParticle(Particle.CRIT, location, 0);
 
 
                     }
                 }
+
+                playSoundFromLocToEvryone(attacker, Sound.ENTITY_BLAZE_HURT, 1.0f, 2.0f);
 
                 for (int i = 0; i < range; i++) {
                     targetLocation.add(direction);

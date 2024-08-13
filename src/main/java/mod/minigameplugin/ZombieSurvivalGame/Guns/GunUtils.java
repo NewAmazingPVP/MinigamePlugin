@@ -1,6 +1,9 @@
 package mod.minigameplugin.ZombieSurvivalGame.Guns;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -47,19 +50,22 @@ public class GunUtils implements Listener {
 
             case "PISTOL":
 
-                player.sendMessage("test1");
+                for(int i = 1; i <= 15; i++) {
+                    player.getInventory().setItem(0, pistol(true, linkPlayerToPistolBulletCount.get(player)));
+                    linkPlayerToPistolBulletCount.put(player, linkPlayerToPistolBulletCount.getOrDefault(player, 0) + 1);
+                }
+                player.getInventory().setItemInMainHand(pistol(false, linkPlayerToPistolBulletCount.get(player)));
 
-                BukkitRunnable mageMobAttackRate;
+                /*BukkitRunnable reloadAnimation;
 
-                player.sendMessage("test2");
-
-                mageMobAttackRate = new BukkitRunnable() {
-
+                reloadAnimation = new BukkitRunnable() {
 
                     int bulletCount = 15;
 
                     @Override
                     public void run() {
+
+
 
                         player.sendMessage("test3");
 
@@ -77,7 +83,7 @@ public class GunUtils implements Listener {
 
 
                     }
-                };mageMobAttackRate.runTaskTimer(minigamePlugin, 0L, 20L); // Start immediately and repeat every second
+                };reloadAnimation.runTaskTimer(minigamePlugin, 0L, 20L); */
 
                 break;
             default:
@@ -88,12 +94,18 @@ public class GunUtils implements Listener {
 
 
 
+    }
 
 
 
+    public static void playSoundFromLocToEvryone(Player player, Sound sound, Float volume, Float pitch) {
 
+        Location loc = player.getLocation();
 
+        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+            onlinePlayer.playSound(loc, sound, volume, pitch); 
 
+        }
     }
 
 
