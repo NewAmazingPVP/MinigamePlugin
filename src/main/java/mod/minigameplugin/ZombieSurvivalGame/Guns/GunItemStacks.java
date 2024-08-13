@@ -94,7 +94,7 @@ public class GunItemStacks {
 
 
         }else{
-            meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Reloading..." + bulletCount);
+            meta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Reloading... " + bulletCount);
         }
 
 
