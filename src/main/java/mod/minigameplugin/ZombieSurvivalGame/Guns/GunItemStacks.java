@@ -22,11 +22,12 @@ public class GunItemStacks {
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.DARK_PURPLE + "Used to load a pistol.");
         meta.setLore(lore);
+        pistolAmmo.setItemMeta(meta);
 
         return pistolAmmo;
     }
 
-    public static ItemStack shotgunAmmo(){
+    public static ItemStack shotgunAmmo() {
 
         ItemStack pistolAmmo = new ItemStack(Material.RED_CANDLE);
         ItemMeta meta = pistolAmmo.getItemMeta();
@@ -36,6 +37,7 @@ public class GunItemStacks {
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.DARK_PURPLE + "Used to load a shotgun.");
         meta.setLore(lore);
+        pistolAmmo.setItemMeta(meta);
 
         return pistolAmmo;
     }
@@ -50,6 +52,7 @@ public class GunItemStacks {
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.DARK_PURPLE + "Used to load special guns.");
         meta.setLore(lore);
+        pistolAmmo.setItemMeta(meta);
 
         return pistolAmmo;
     }
