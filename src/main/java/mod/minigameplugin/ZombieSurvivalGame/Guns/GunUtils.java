@@ -103,7 +103,7 @@ public class GunUtils implements Listener {
         Location loc = player.getLocation();
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            onlinePlayer.playSound(loc, sound, volume, pitch); 
+            onlinePlayer.playSound(loc, sound, volume, pitch);
 
         }
     }
