@@ -1,5 +1,6 @@
 package mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack;
 
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -66,6 +67,7 @@ public class HealPackChargesManager {
 
         lore.add(ChatColor.DARK_GRAY + "ID: healthPack");
 
+        player.sendMessage((BaseComponent) lore);
 
 
 

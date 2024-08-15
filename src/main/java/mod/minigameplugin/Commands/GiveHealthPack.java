@@ -15,7 +15,7 @@ public class GiveHealthPack implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        player.sendMessage(String.valueOf(arrayList.size())); 
+        player.sendMessage(String.valueOf(arrayList.size()));
 
         player.getInventory().addItem(healthPack(player));
 
