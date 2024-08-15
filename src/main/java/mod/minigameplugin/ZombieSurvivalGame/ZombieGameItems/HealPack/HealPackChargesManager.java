@@ -55,7 +55,7 @@ public class HealPackChargesManager {
 
         lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "---------------");
 
-        for(int i = (linkPlayerToHealPack.get(player)).size(); i>0; i-- ){
+        for(int i = 0; i == (linkPlayerToHealPack.get(player)).size(); i++ ){
             lore.add(ChatColor.DARK_RED + "" +  linkPlayerToHealPack.get(player).get(i) + " ❤");
         }
 
@@ -71,7 +71,7 @@ public class HealPackChargesManager {
 
         return pistolAmmo;
     }
-    
+
 
 
 
