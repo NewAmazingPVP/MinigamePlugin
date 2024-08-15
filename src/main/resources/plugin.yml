@@ -24,3 +24,8 @@ commands:
     usage: /givezombiesitem <item>
     permission: lifestealSMP.admin
     default: op
+  givehealthpack:
+    description: Gives a health pack
+    usage: /givehealthpack
+    permission: lifestealSMP.admin
+    default: op

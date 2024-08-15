@@ -60,12 +60,11 @@ public class Pistol implements Listener {
                     Entity target = getTargetEntityAtLocation(targetLocation);
                     if (target != null) {
                         if (target instanceof Entity) {
-                            //if (event.getItem().getType() == Material.STICK) {
 
-                            //Things you want staff to do goes here
 
                             ((LivingEntity) target).damage(1);
-                            //}
+
+
                         }
                         break;
                     }
