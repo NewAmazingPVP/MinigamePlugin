@@ -6,7 +6,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack.HealPackChargesManager.healthPack;
-import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack.HealPackChargesManager.healthPack111;
 
 public class GiveHealthPack implements CommandExecutor {
 
@@ -15,7 +14,7 @@ public class GiveHealthPack implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        player.getInventory().addItem(healthPack111(player));
+        player.getInventory().addItem(healthPack(player));
 
         return true;
     }
