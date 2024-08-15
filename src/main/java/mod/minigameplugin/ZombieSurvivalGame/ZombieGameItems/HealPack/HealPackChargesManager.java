@@ -72,6 +72,33 @@ public class HealPackChargesManager {
         return pistolAmmo;
     }
 
+    public static ItemStack healthPack111(Player player){
+
+        ItemStack pistolAmmo = new ItemStack(Material.POTION);
+        ItemMeta meta = pistolAmmo.getItemMeta();
+
+
+        meta.setDisplayName(ChatColor.RED + "Health Pack");
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click] " + ChatColor.DARK_PURPLE + "Heals you as long as there is a charge.");
+
+        lore.add(ChatColor.AQUA + "" + ChatColor.UNDERLINE + "---------------");
+
+
+        lore.add(ChatColor.AQUA + "" + ChatColor.UNDERLINE + "---------------");
+
+        lore.add(ChatColor.DARK_GRAY + "ID: healthPack");
+
+
+
+
+        meta.setLore(lore);
+        pistolAmmo.setItemMeta(meta);
+
+        return pistolAmmo;
+    }
+
 
 
 }
