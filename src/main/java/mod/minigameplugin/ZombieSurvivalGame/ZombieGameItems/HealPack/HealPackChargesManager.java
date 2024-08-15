@@ -34,6 +34,9 @@ public class HealPackChargesManager {
         }
     }
 
+    private static ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(1,7,5));
+
+    //(linkPlayerToHealPack.get(player)).size()
 
     private static boolean isPlayerInHashMap(Player player) {
         return linkPlayerToHealPack.containsKey(player);
@@ -55,7 +58,7 @@ public class HealPackChargesManager {
 
         lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "---------------");
 
-        for(int i = 0; i == (linkPlayerToHealPack.get(player)).size(); i++ ){
+        for(int i = 0; i == (arrayList).size() ; i++ ){
             lore.add(ChatColor.DARK_RED + "" +  linkPlayerToHealPack.get(player).get(i) + " ❤");
         }
 
