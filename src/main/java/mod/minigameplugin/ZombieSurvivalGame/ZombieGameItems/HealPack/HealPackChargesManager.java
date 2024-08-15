@@ -34,7 +34,7 @@ public class HealPackChargesManager {
         }
     }
 
-    private static ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(1,7,5));
+    public static ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(1,7,5));
 
     //(linkPlayerToHealPack.get(player)).size()
 
@@ -61,7 +61,7 @@ public class HealPackChargesManager {
         for(int i = 0; i == arrayList.size() ; i++ ){
             lore.add(ChatColor.DARK_RED + "" +  linkPlayerToHealPack.get(player).get(i) + " ❤");
         }
-        
+
         lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "---------------");
 
         lore.add(ChatColor.DARK_GRAY + "ID: healthPack");
