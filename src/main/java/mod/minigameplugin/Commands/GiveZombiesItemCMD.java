@@ -16,7 +16,7 @@ import java.util.List;
 import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunItemStacks.*;
 
 
-public class GiveZombiesGunCMD implements CommandExecutor, TabCompleter {
+public class GiveZombiesItemCMD implements CommandExecutor, TabCompleter {
 
 
     private final ArrayList<String> subcommands = new ArrayList<>(List.of("testgun","pistolammo","shotgunammo","specialammo"));

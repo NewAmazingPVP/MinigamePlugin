@@ -3,13 +3,7 @@ package mod.minigameplugin;
 import com.earth2me.essentials.Essentials;
 import fr.mrmicky.fastboard.FastBoard;
 import mod.minigameplugin.AllMinigameListeners.ActionBarDamageIndicator;
-import mod.minigameplugin.AllMinigameListeners.HitIndicator;
-import mod.minigameplugin.Commands.CustomDistance;
-import mod.minigameplugin.Commands.GiveZombiesGunCMD;
-import mod.minigameplugin.Commands.StartZombieGame;
-import mod.minigameplugin.Commands.readBlockAndItemInfo;
-import mod.minigameplugin.MainLobby.LobbyMain;
-import mod.minigameplugin.MainLobby.RandomCoinPickup;
+import mod.minigameplugin.Commands.*;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunListeners.Pistol;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils;
 import org.bukkit.Bukkit;
@@ -50,7 +44,8 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getCommand("readitemorblockdata").setExecutor(new readBlockAndItemInfo());
         getCommand("setview").setExecutor(new CustomDistance());
         getCommand("zombiegame").setExecutor(new StartZombieGame());
-        getCommand("givezombiesitem").setExecutor(new GiveZombiesGunCMD());
+        getCommand("givezombiesitem").setExecutor(new GiveZombiesItemCMD());
+        getCommand("givehealthpack").setExecutor(new GiveHealthPack());
 
         getServer().getScheduler().runTaskTimer(this, () -> {
             for (FastBoard board : this.boards.values()) {
