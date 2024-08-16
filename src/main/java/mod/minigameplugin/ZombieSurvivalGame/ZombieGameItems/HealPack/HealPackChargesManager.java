@@ -30,7 +30,7 @@ public class HealPackChargesManager implements Listener {
 
         if (!isPlayerInHashMap(player)) {
 
-            linkPlayerToHealPack.put(player, new ArrayList<>(Arrays.asList(5,7,8,1,2,-1)));
+            linkPlayerToHealPack.put(player, new ArrayList<>(Arrays.asList(5,7,8,1,2)));
 
         }
     }
@@ -60,7 +60,7 @@ public class HealPackChargesManager implements Listener {
 
         for(int i = 0; i < linkPlayerToHealPack.get(player).size(); i++ ) {
 
-            if(i==-1){
+            if(i==0){
                 lore.add(ChatColor.DARK_RED + "[" + linkPlayerToHealPack.get(player).get(i) + " HP ❤] <<<");
             }else{
                 lore.add(ChatColor.DARK_RED + "[" + linkPlayerToHealPack.get(player).get(i) + " HP ❤]");
