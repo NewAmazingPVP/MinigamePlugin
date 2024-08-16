@@ -1,6 +1,7 @@
 package mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack;
 
 import net.md_5.bungee.api.chat.BaseComponent;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
@@ -9,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
@@ -47,50 +49,75 @@ public class HealPackChargesManager implements Listener {
         ItemStack healthPack = new ItemStack(Material.TNT_MINECART);
         ItemMeta meta = healthPack.getItemMeta();
 
-
         meta.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "Health Pack");
 
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click] " + ChatColor.DARK_PURPLE + "Heal Yourself.");
         lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Left Click] " + ChatColor.DARK_PURPLE + "Open Menu.");
 
-
-
         lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "----" + ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Charges]" + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "----");
 
         for(int i = 0; i < linkPlayerToHealPack.get(player).size(); i++ ) {
 
             if(i==0){
-                lore.add(ChatColor.DARK_RED + "[" + linkPlayerToHealPack.get(player).get(i) + " HP ❤] <<<");
+                lore.add(ChatColor.DARK_RED + "[" + linkPlayerToHealPack.get(player).get(i) + " HP ❤] <<< " + ChatColor.YELLOW + "Next Charge In Queue");
             }else{
                 lore.add(ChatColor.DARK_RED + "[" + linkPlayerToHealPack.get(player).get(i) + " HP ❤]");
             }
-
-
         }
 
-        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "----------");
-
+        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "---------------");
         lore.add(ChatColor.DARK_GRAY + "ID: healthPack");
-
-
         meta.setLore(lore);
 
-
         healthPack.setItemMeta(meta);
-
         return healthPack;
     }
+
+    public static ItemStack healthPackGUIItem(Integer hpAmount){
+
+        ItemStack healthPack = new ItemStack(Material.RED_CONCRETE);
+        ItemMeta meta = healthPack.getItemMeta();
+
+        meta.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[+" + hpAmount + ChatColor.DARK_RED +"❤]");
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click] " + ChatColor.GREEN + "Move to the top of the queue.");
+        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Left Click] " + ChatColor.RED + "Remove!.");
+
+        lore.add(ChatColor.DARK_GRAY + "ID: GUI_healthPack");
+        meta.setLore(lore);
+
+        healthPack.setItemMeta(meta);
+        return healthPack;
+    }
+
+
+
 
 
     //=================================================
 
     @EventHandler
     public void playerClick(PlayerInteractEvent e){
-        Player attacker = e.getPlayer();
-        ItemStack itemInHand = attacker.getInventory().getItemInMainHand();
+        Player player = e.getPlayer();
+        ItemStack itemInHand = player.getInventory().getItemInMainHand();
         ItemMeta meta = itemInHand.getItemMeta();
         if (e.getAction().name().contains("LEFT_CLICK") && e.getItem() != null && itemInHand != null && itemInHand.hasItemMeta() && meta.getLore().toString().contains("ID: healthPack")) {
+
+
+
+            Inventory inv = Bukkit.createInventory(null, 54, ChatColor.DARK_RED + "Health Pack");
+
+            for (Integer i : linkPlayerToHealPack.get(player)) {
+
+                inv.addItem(healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
+            }
+
+            player.openInventory(inv);
+
+
+
 
 
 
