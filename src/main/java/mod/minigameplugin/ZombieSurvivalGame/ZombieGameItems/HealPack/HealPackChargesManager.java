@@ -109,7 +109,7 @@ public class HealPackChargesManager implements Listener {
 
 
 
-            Inventory healthPackInv = Bukkit.createInventory(null, 36, ChatColor.DARK_RED + "Health Pack");
+            Inventory healthPackInv = Bukkit.createInventory(null, 36, ChatColor.DARK_RED + "" + ChatColor.BOLD + "Health Pack");
 
             for (Integer i : linkPlayerToHealPack.get(player)) {
 
@@ -140,9 +140,7 @@ public class HealPackChargesManager implements Listener {
         }
     }
 
-
-    @EventHandler
-    public void invClick(InventoryInteractEvent)
+    
 
 
 
