@@ -59,7 +59,7 @@ public class HealPackChargesManager {
 
         lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "---------------");
 
-        for(int i = 0; i == arrayList.size() ; i++ ){
+        for(int i = 0; i == arrayList.size()-1 ; i++ ){
             lore.add(ChatColor.DARK_RED + "" +  arrayList.get(i) + " ❤");
         }
 
