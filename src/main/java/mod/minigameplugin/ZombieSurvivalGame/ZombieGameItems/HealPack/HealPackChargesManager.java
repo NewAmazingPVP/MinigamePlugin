@@ -105,18 +105,17 @@ public class HealPackChargesManager implements Listener {
         ItemStack itemInHand = player.getInventory().getItemInMainHand();
         ItemMeta meta = itemInHand.getItemMeta();
         if (e.getAction().name().contains("LEFT_CLICK") && e.getItem() != null && itemInHand != null && itemInHand.hasItemMeta() && meta.getLore().toString().contains("ID: healthPack")) {
+            
 
-            player.sendMessage("test");
 
+            Inventory healthPackInv = Bukkit.createInventory(null, 54, ChatColor.DARK_RED + "Health Pack");
 
-            Inventory inv = Bukkit.createInventory(null, 54, ChatColor.DARK_RED + "Health Pack");
+            /*for (Integer i : linkPlayerToHealPack.get(player)) {
 
-            for (Integer i : linkPlayerToHealPack.get(player)) {
+                healthPackInv.addItem(healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
+            }*/
 
-                inv.addItem(healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
-            }
-
-            player.openInventory(inv);
+            player.openInventory(healthPackInv);
 
 
 
@@ -125,8 +124,17 @@ public class HealPackChargesManager implements Listener {
 
 
     @EventHandler
-    public void playerPickupItem(PlayerPickupItemEvent e){
+    public void playerPickupItem(PlayerPickupItemEvent e) {
 
+        Player player = e.getPlayer();
+        ItemStack item = e.getItem().getItemStack();
+        ItemMeta meta = item.getItemMeta();
+
+        if (item.hasItemMeta() && meta.getLore().toString().contains("ID: GUI_healthPack")) {
+
+
+
+        }
     }
 
 
