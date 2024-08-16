@@ -8,6 +8,7 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryInteractEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
@@ -105,15 +106,15 @@ public class HealPackChargesManager implements Listener {
         ItemStack itemInHand = player.getInventory().getItemInMainHand();
         ItemMeta meta = itemInHand.getItemMeta();
         if (e.getAction().name().contains("LEFT_CLICK") && e.getItem() != null && itemInHand != null && itemInHand.hasItemMeta() && meta.getLore().toString().contains("ID: healthPack")) {
-            
 
 
-            Inventory healthPackInv = Bukkit.createInventory(null, 54, ChatColor.DARK_RED + "Health Pack");
 
-            /*for (Integer i : linkPlayerToHealPack.get(player)) {
+            Inventory healthPackInv = Bukkit.createInventory(null, 36, ChatColor.DARK_RED + "Health Pack");
 
-                healthPackInv.addItem(healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
-            }*/
+            for (Integer i : linkPlayerToHealPack.get(player)) {
+
+                healthPackInv.addItem(healthPackGUIItem(1));
+            }
 
             player.openInventory(healthPackInv);
 
@@ -122,6 +123,8 @@ public class HealPackChargesManager implements Listener {
         }
     }
 
+
+    //Adding Charges
 
     @EventHandler
     public void playerPickupItem(PlayerPickupItemEvent e) {
@@ -136,6 +139,12 @@ public class HealPackChargesManager implements Listener {
 
         }
     }
+
+
+    @EventHandler
+    public void invClick(InventoryInteractEvent)
+
+
 
 
 
