@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -105,6 +106,7 @@ public class HealPackChargesManager implements Listener {
         ItemMeta meta = itemInHand.getItemMeta();
         if (e.getAction().name().contains("LEFT_CLICK") && e.getItem() != null && itemInHand != null && itemInHand.hasItemMeta() && meta.getLore().toString().contains("ID: healthPack")) {
 
+            player.sendMessage("test");
 
 
             Inventory inv = Bukkit.createInventory(null, 54, ChatColor.DARK_RED + "Health Pack");
@@ -118,10 +120,13 @@ public class HealPackChargesManager implements Listener {
 
 
 
-
-
-
         }
+    }
+
+
+    @EventHandler
+    public void playerPickupItem(PlayerPickupItemEvent e){
+
     }
 
 
