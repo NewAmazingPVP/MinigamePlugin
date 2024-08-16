@@ -30,7 +30,7 @@ public class HealPackChargesManager implements Listener {
 
         if (!isPlayerInHashMap(player)) {
 
-            linkPlayerToHealPack.put(player, new ArrayList<>(Arrays.asList(5,7,8,1,2)));
+            linkPlayerToHealPack.put(player, new ArrayList<>(Arrays.asList(5,7,8,1,2,-1)));
 
         }
     }
@@ -48,16 +48,25 @@ public class HealPackChargesManager implements Listener {
         ItemMeta meta = healthPack.getItemMeta();
 
 
-        meta.setDisplayName(ChatColor.RED + "Health Pack");
+        meta.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "Health Pack");
 
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click] " + ChatColor.DARK_PURPLE + "Heal Yourself.");
         lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Left Click] " + ChatColor.DARK_PURPLE + "Open Menu.");
 
-        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "----------");
 
-        for(int i = 0; i < linkPlayerToHealPack.get(player).size()-1; i++ ) {
-            lore.add(ChatColor.DARK_RED + "" + linkPlayerToHealPack.get(player).get(i) + " HP ❤");
+
+        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "----" + ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Charges]" + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "----");
+
+        for(int i = 0; i < linkPlayerToHealPack.get(player).size(); i++ ) {
+
+            if(i==-1){
+                lore.add(ChatColor.DARK_RED + "[" + linkPlayerToHealPack.get(player).get(i) + " HP ❤] <<<");
+            }else{
+                lore.add(ChatColor.DARK_RED + "[" + linkPlayerToHealPack.get(player).get(i) + " HP ❤]");
+            }
+
+
         }
 
         lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "----------");
