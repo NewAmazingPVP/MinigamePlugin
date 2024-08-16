@@ -67,7 +67,7 @@ public class HealPackChargesManager {
 
         lore.add(ChatColor.DARK_GRAY + "ID: healthPack");
 
-        player.sendMessage((BaseComponent) lore);
+        //player.sendMessage((BaseComponent) lore);
 
 
 
