@@ -68,7 +68,7 @@ public class HealPackChargesManager implements Listener {
             }
         }
 
-        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "---------------");
+        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "-----------------");
         lore.add(ChatColor.DARK_GRAY + "ID: healthPack");
         meta.setLore(lore);
 
@@ -113,13 +113,11 @@ public class HealPackChargesManager implements Listener {
 
             for (Integer i : linkPlayerToHealPack.get(player)) {
 
-                if(i>= 35){
+                if(i>= 4){
                     break;
                 }else{
-                    
-                    healthPackInv.setItem(i, healthPackGUIItem(1));
+                    healthPackInv.setItem(i, healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
                 }
-
 
             }
 
