@@ -84,8 +84,8 @@ public class HealPackChargesManager implements Listener {
         meta.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[+" + hpAmount + ChatColor.DARK_RED +"❤]");
 
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click] " + ChatColor.GREEN + "Move to the top of the queue.");
-        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Left Click] " + ChatColor.RED + "Remove!.");
+        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click] " + ChatColor.RED + "Remove!");
+        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Left Click] " + ChatColor.GREEN + "Move to the top of the queue.");
 
         lore.add(ChatColor.DARK_GRAY + "ID: GUI_healthPack");
         meta.setLore(lore);
@@ -113,7 +113,14 @@ public class HealPackChargesManager implements Listener {
 
             for (Integer i : linkPlayerToHealPack.get(player)) {
 
-                healthPackInv.addItem(healthPackGUIItem(1));
+                if(i>= 35){
+                    break;
+                }else{
+                    
+                    healthPackInv.setItem(i, healthPackGUIItem(1));
+                }
+
+
             }
 
             player.openInventory(healthPackInv);
@@ -140,7 +147,7 @@ public class HealPackChargesManager implements Listener {
         }
     }
 
-    
+
 
 
 
