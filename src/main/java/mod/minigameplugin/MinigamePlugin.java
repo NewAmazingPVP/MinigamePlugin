@@ -6,6 +6,7 @@ import mod.minigameplugin.AllMinigameListeners.ActionBarDamageIndicator;
 import mod.minigameplugin.Commands.*;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunListeners.Pistol;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils;
+import mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack.HealPackChargesManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Statistic;
@@ -36,6 +37,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ActionBarDamageIndicator(), this);
         getServer().getPluginManager().registerEvents(new Pistol(), this);
         getServer().getPluginManager().registerEvents(new GunUtils(), this);
+        getServer().getPluginManager().registerEvents(new HealPackChargesManager(), this);
         //getServer().getPluginManager().registerEvents(new LobbyMain(), this);
         //getServer().getPluginManager().registerEvents(new HitIndicator(), this);
         //getServer().getPluginManager().registerEvents(new RandomCoinPickup(), this);
