@@ -3,6 +3,7 @@ package mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -48,23 +49,24 @@ public class HealPackChargesManager {
     //Item stack
     public static ItemStack healthPack(Player player){
 
-        ItemStack pistolAmmo = new ItemStack(Material.POTION);
+        ItemStack pistolAmmo = new ItemStack(Material.TNT_MINECART);
         ItemMeta meta = pistolAmmo.getItemMeta();
 
 
         meta.setDisplayName(ChatColor.RED + "Health Pack");
 
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click] " + ChatColor.DARK_PURPLE + "Heals you as long as there is a charge.");
+        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click] " + ChatColor.DARK_PURPLE + "Heal Yourself.");
+        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Left Click] " + ChatColor.DARK_PURPLE + "Open Menu.");
 
-        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "---------------");
+        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "----------");
 
-        for(int i = 0; i < arrayList.size()-1 ; i++ ) {
-            lore.add(ChatColor.DARK_RED + "" + arrayList.get(i) + " ❤");
+        for(int i = 0; i < linkPlayerToHealPack.get(player).size(); i++ ) {
+            lore.add(ChatColor.DARK_RED + "" + arrayList.get(i) + " HP ❤");
         }
 
 
-        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "---------------");
+        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "----------");
 
         lore.add(ChatColor.DARK_GRAY + "ID: healthPack");
 
@@ -73,6 +75,8 @@ public class HealPackChargesManager {
 
 
         meta.setLore(lore);
+
+
         pistolAmmo.setItemMeta(meta);
 
         return pistolAmmo;
