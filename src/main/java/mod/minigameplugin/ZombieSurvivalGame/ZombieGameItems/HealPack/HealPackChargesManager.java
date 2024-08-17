@@ -111,9 +111,9 @@ public class HealPackChargesManager implements Listener {
 
             Inventory healthPackInv = Bukkit.createInventory(null, 36, ChatColor.DARK_RED + "" + ChatColor.BOLD + "Health Pack");
 
-            for (Integer i : linkPlayerToHealPack.get(player)) {
+            for (Integer i =0; i >= linkPlayerToHealPack.get(player).size(); i++) {
 
-                if(i>= 4){
+                if(i>= 35){
                     break;
                 }else{
                     healthPackInv.setItem(i, healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
