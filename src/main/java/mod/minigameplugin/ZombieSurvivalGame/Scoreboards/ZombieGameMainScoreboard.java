@@ -38,7 +38,10 @@ public class ZombieGameMainScoreboard implements Listener {
 
                 "",
                 ChatColor.AQUA + "" + ChatColor.BOLD + "Kills: " + linkPlayerToKillCount.get(player),
-                ""
+
+                "",
+
+                ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "-----[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Players" + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "]-----"
         );
 
     }
@@ -56,6 +59,8 @@ public class ZombieGameMainScoreboard implements Listener {
         board.updateTitle(ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "===[Zombies]===");
 
         this.zombieGameBoards.put(player, board);
+
+        updateZombieGameScoreboard(board, player);
 
 
     }
