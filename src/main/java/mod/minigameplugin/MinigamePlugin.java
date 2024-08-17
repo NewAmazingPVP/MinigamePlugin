@@ -6,6 +6,7 @@ import mod.minigameplugin.AllMinigameListeners.ActionBarDamageIndicator;
 import mod.minigameplugin.Commands.*;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunListeners.Pistol;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils;
+import mod.minigameplugin.ZombieSurvivalGame.Scoreboards.ZombieGameMainScoreboard;
 import mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack.HealPackChargesManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -29,7 +30,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
 
     public static World curentWorld = Bukkit.getWorld("world");
 
-    private final Map<UUID, FastBoard> boards = new HashMap<>();
+    //private final Map<UUID, FastBoard> boards = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -38,6 +39,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new Pistol(), this);
         getServer().getPluginManager().registerEvents(new GunUtils(), this);
         getServer().getPluginManager().registerEvents(new HealPackChargesManager(), this);
+        getServer().getPluginManager().registerEvents(new ZombieGameMainScoreboard(), this);
         //getServer().getPluginManager().registerEvents(new LobbyMain(), this);
         //getServer().getPluginManager().registerEvents(new HitIndicator(), this);
         //getServer().getPluginManager().registerEvents(new RandomCoinPickup(), this);
@@ -50,9 +52,9 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getCommand("givehealthpack").setExecutor(new GiveHealthPack());
 
         getServer().getScheduler().runTaskTimer(this, () -> {
-            for (FastBoard board : this.boards.values()) {
+            /*for (FastBoard board : this.boards.values()) {
                 updateBoard(board);
-            }
+            }*/
         }, 0, 20);
     }
 
@@ -60,25 +62,25 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
 
-        FastBoard board = new FastBoard(player);
+        /*FastBoard board = new FastBoard(player);
 
         board.updateTitle(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Nappixel Mini Games");
 
-        this.boards.put(player.getUniqueId(), board);
+        this.boards.put(player.getUniqueId(), board);*/
     }
 
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
         Player player = e.getPlayer();
 
-        FastBoard board = this.boards.remove(player.getUniqueId());
+        /*FastBoard board = this.boards.remove(player.getUniqueId());
 
         if (board != null) {
             board.delete();
-        }
+        }*/
     }
 
-    private void updateBoard(FastBoard board) {
+    /*private void updateBoard(FastBoard board) {
         board.updateLines(
                 "",
                 "Players: " + getServer().getOnlinePlayers().size(),
@@ -86,5 +88,5 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
                 "Kills: " + board.getPlayer().getStatistic(Statistic.PLAYER_KILLS),
                 ""
         );
-    }
+    }*/
 }
