@@ -68,7 +68,7 @@ public class HealPackChargesManager implements Listener {
             }
         }
 
-        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "-----------------");
+        lore.add(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "------------------");
         lore.add(ChatColor.DARK_GRAY + "ID: healthPack");
         meta.setLore(lore);
 
@@ -109,12 +109,14 @@ public class HealPackChargesManager implements Listener {
 
 
 
-            Inventory healthPackInv = Bukkit.createInventory(null, 36, ChatColor.DARK_RED + "" + ChatColor.BOLD + "Health Pack");
+            Inventory healthPackInv = Bukkit.createInventory(null, 36, ChatColor.DARK_RED + "" + ChatColor.BOLD + "       Health Pack");
 
             for (Integer i =0; i >= linkPlayerToHealPack.get(player).size(); i++) {
 
 
-                healthPackInv.setItem(i, healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
+                //healthPackInv.setItem(i, healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
+
+                healthPackInv.setItem(i, healthPackGUIItem(1));
 
                 /*if(i>= 35){
                     break;
