@@ -113,11 +113,14 @@ public class HealPackChargesManager implements Listener {
 
             for (Integer i =0; i >= linkPlayerToHealPack.get(player).size(); i++) {
 
-                if(i>= 35){
+
+                healthPackInv.setItem(i, healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
+
+                /*if(i>= 35){
                     break;
                 }else{
-                    healthPackInv.setItem(i, healthPackGUIItem(linkPlayerToHealPack.get(player).get(i)));
-                }
+
+                }*/
 
             }
 
