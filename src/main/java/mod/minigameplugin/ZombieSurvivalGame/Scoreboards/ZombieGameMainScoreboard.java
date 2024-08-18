@@ -82,7 +82,7 @@ public class ZombieGameMainScoreboard implements Listener {
 
         FastBoard board = new FastBoard(player);
 
-        board.updateTitle(ChatColor.DARK_RED + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "------" + ChatColor.GREEN + "" + ChatColor.BOLD + "[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Zombies" + ChatColor.GREEN + "" + ChatColor.BOLD + "]" + ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "------");
+        board.updateTitle(ChatColor.DARK_RED + "" + ChatColor.BOLD + ChatColor.ITALIC + "[" + ChatColor.GREEN + "" + ChatColor.BOLD + ChatColor.ITALIC + "Zombies" + ChatColor.GREEN + "" + ChatColor.BOLD + ChatColor.ITALIC + "]");
 
 
 
