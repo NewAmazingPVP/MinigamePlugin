@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameMain.currentZombieGameTime;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameMain.playersInCurrentGame;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombiesDeathManager.*;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombiesKillsManager.linkPlayerToKillCount;
@@ -45,7 +46,9 @@ public class ZombieGameMainScoreboard implements Listener {
 
                 ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Deaths]: " + ChatColor.GREEN + linkPlayerToDeathCount.get(player),
 
-                //"",
+                "",
+
+                ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Time]: " + ChatColor.GREEN + formatTime(currentZombieGameTime),
 
                 //ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "--" + ChatColor.GREEN + "" + ChatColor.BOLD + "[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Players" + ChatColor.GREEN + "" + ChatColor.BOLD + "]" + ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "----------",
 
@@ -55,6 +58,13 @@ public class ZombieGameMainScoreboard implements Listener {
 
         );
 
+    }
+
+    private static String formatTime(int seconds) {
+        int hours = seconds / 3600;
+        int minutes = (seconds % 3600) / 60;
+        int secs = seconds % 60;
+        return String.format("%02d:%02d:%02d", hours, minutes, secs);
     }
 
 
