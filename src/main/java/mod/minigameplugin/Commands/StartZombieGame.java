@@ -16,6 +16,9 @@ public class StartZombieGame implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        Player player = (Player) sender;
+
         if (args.length == 0) {
             sender.sendMessage("Please specify a argument.");
             return false;
@@ -25,7 +28,7 @@ public class StartZombieGame implements CommandExecutor, TabCompleter {
         switch (args[0].toLowerCase()) {
             case "start":
                 ZombieGameMain.isZombieGameRunning = true;
-                startZombieGame();
+                startZombieGame(player);
                 break;
             case "stop":
                 ZombieGameMain.isZombieGameRunning = false;
