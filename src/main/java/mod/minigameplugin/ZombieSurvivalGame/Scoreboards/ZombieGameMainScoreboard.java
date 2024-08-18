@@ -1,6 +1,7 @@
 package mod.minigameplugin.ZombieSurvivalGame.Scoreboards;
 
 import fr.mrmicky.fastboard.FastBoard;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
@@ -8,12 +9,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.scoreboard.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameMain.playersInCurrentGame;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombiesDeathManager.*;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombiesKillsManager.linkPlayerToKillCount;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombiesShopManager.linkPlayerToCoinCount;
@@ -25,15 +28,12 @@ public class ZombieGameMainScoreboard implements Listener {
 
     public final Map<Player, FastBoard> zombieGameBoards = new HashMap<>();
 
-    public static List<Player> playersInZombieGame = new ArrayList<>();
-
-
 
 
     public static void updateZombieGameScoreboard(FastBoard board, Player player) {
 
         board.updateLines(
-                ChatColor.GREEN + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "--------------------",
+                ChatColor.DARK_GREEN + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "--------------------",
 
                 ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Coins]: " + ChatColor.GREEN + linkPlayerToCoinCount.get(player),
 
@@ -47,12 +47,19 @@ public class ZombieGameMainScoreboard implements Listener {
 
                 "",
 
-                ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Players" + ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "]-----",
+                //ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "--" + ChatColor.GREEN + "" + ChatColor.BOLD + "[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Players" + ChatColor.GREEN + "" + ChatColor.BOLD + "]" + ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "----------",
+
+
 
                 ChatColor.GREEN + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "--------------------"
+
         );
 
     }
+
+
+
+
 
 
 
@@ -62,13 +69,14 @@ public class ZombieGameMainScoreboard implements Listener {
         Player player = e.getPlayer();
 
 
+
         FastBoard board = new FastBoard(player);
 
-        board.updateTitle(ChatColor.GREEN + "" + ChatColor.BOLD + "===[Zombies]===");
+        board.updateTitle(ChatColor.DARK_RED + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "------" + ChatColor.GREEN + "" + ChatColor.BOLD + "[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Zombies" + ChatColor.GREEN + "" + ChatColor.BOLD + "]" + ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "------");
 
-        this.zombieGameBoards.put(player, board);
 
-        updateZombieGameScoreboard(board, player);
+
+       updateZombieGameScoreboard(board, player);
 
 
     }
@@ -78,6 +86,7 @@ public class ZombieGameMainScoreboard implements Listener {
         Player player = e.getPlayer();
 
         FastBoard board = this.zombieGameBoards.remove(player);
+
 
         if (board != null) {
             board.delete();
