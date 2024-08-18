@@ -33,18 +33,16 @@ public class ZombieGameMain {
 
         player1.sendMessage("test2");
 
-        for (Player player : playersInCurrentGame) {
+        /*for (Player player : playersInCurrentGame) {
             player.teleport(startGameSpawn);
-        }
+        }*/
 
-        player1.sendMessage("test3");
 
         zombieGameMainRunnable = new BukkitRunnable() {
             @Override
             public void run() {
 
-                player1.sendMessage("test4");
-
+                currentZombieGameTime +=1;
 
 
 
