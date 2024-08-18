@@ -43,7 +43,7 @@ public class ZombieGameMain {
         zombieGameMainRunnable = new BukkitRunnable() {
             @Override
             public void run() {
-                currentZombieGameTime += 1;
+                //currentZombieGameTime += 1;
             }
         }.runTaskTimer(minigamePlugin, 0L, 20L);
 

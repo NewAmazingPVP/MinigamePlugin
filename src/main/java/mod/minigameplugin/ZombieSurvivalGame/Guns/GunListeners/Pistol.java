@@ -62,7 +62,7 @@ public class Pistol implements Listener {
                         if (target instanceof Entity) {
 
 
-                            ((LivingEntity) target).damage(1);
+                            ((LivingEntity) target).damage(1,attacker);
 
 
                         }
