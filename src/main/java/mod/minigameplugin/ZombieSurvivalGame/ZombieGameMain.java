@@ -24,6 +24,8 @@ public class ZombieGameMain {
 
     public static int currentZombieGameTime = 0;
 
+    public static int roundNum = 0;
+
     public static void startZombieGame(Player player1) {
 
         player1.sendMessage("test1");

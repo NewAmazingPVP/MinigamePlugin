@@ -16,8 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameMain.currentZombieGameTime;
-import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameMain.playersInCurrentGame;
+import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameMain.*;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombiesDeathManager.*;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombiesKillsManager.linkPlayerToKillCount;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombiesShopManager.linkPlayerToCoinCount;
@@ -49,6 +48,10 @@ public class ZombieGameMainScoreboard implements Listener {
                 "",
 
                 ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Time]: " + ChatColor.GREEN + formatTime(currentZombieGameTime),
+
+                "",
+
+                ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Round]: " + ChatColor.GREEN + roundNum,
 
                 //ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "--" + ChatColor.GREEN + "" + ChatColor.BOLD + "[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Players" + ChatColor.GREEN + "" + ChatColor.BOLD + "]" + ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "----------",
 
