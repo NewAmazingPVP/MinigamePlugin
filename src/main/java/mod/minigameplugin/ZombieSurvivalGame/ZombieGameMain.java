@@ -57,8 +57,6 @@ public class ZombieGameMain {
 
 
 
-
-
                 /*if (zombieGameMainRunnable <= 0) {
 
                     Bukkit.broadcastMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[Game Starting!]");
