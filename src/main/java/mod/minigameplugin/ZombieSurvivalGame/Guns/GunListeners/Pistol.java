@@ -13,12 +13,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunItemStacks.pistol;
 import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils.*;
 
 public class Pistol implements Listener {
+
+    private final Map<Player, CooldownManager> tntCooldowns = new HashMap<>();
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
