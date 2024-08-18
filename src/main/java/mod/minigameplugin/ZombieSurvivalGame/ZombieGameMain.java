@@ -5,6 +5,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class ZombieGameMain {
     public static boolean isZombieGameRunning = false;
 
 
-    public static BukkitRunnable zombieGameMainRunnable;
+    public static BukkitTask zombieGameMainRunnable;
     public static List<Player> playersInCurrentGame = new ArrayList<>();
 
 
@@ -42,12 +43,10 @@ public class ZombieGameMain {
         zombieGameMainRunnable = new BukkitRunnable() {
             @Override
             public void run() {
-
                 currentZombieGameTime += 1;
-
             }
-        };
-        zombieGameMainRunnable.runTaskTimer(minigamePlugin, 0L, 20L); // Start immediately and repeat every second
+        }.runTaskTimer(minigamePlugin, 0L, 20L);
+
 
 
 
@@ -77,7 +76,7 @@ public class ZombieGameMain {
                     }
                 }
                 zombieGameMainRunnable -= 1;*/
-    }
 
+    }
 
 }
