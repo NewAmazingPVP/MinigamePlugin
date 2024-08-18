@@ -4,17 +4,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class ZombiesDeathManager {
+public class ZombiesShopManager {
 
-    public static List<Player> zombiesPlayersAlive = new ArrayList<>();
-
-    public static List<Player> zombiesPlayersDead = new ArrayList<>();
-
-    public static HashMap<Player, Integer> linkPlayerToDeathCount = new HashMap<>();
+    public static HashMap<Player, Integer> linkPlayerToCoinCount = new HashMap<>();
 
 
     @EventHandler
@@ -23,15 +17,14 @@ public class ZombiesDeathManager {
 
         if (!isPlayerInHashMap(player)) {
 
-            linkPlayerToDeathCount.put(player, 0);
+            linkPlayerToCoinCount.put(player, 0);
 
         }
     }
 
 
     private static boolean isPlayerInHashMap(Player player) {
-        return linkPlayerToDeathCount.containsKey(player);
+        return linkPlayerToCoinCount.containsKey(player);
     }
-
 
 }

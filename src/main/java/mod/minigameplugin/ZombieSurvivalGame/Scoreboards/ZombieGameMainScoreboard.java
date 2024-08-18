@@ -14,9 +14,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static mod.minigameplugin.ZombieSurvivalGame.ZombiesDeathManager.zombiesPlayersAlive;
-import static mod.minigameplugin.ZombieSurvivalGame.ZombiesDeathManager.zombiesPlayersDead;
+import static mod.minigameplugin.ZombieSurvivalGame.ZombiesDeathManager.*;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombiesKillsManager.linkPlayerToKillCount;
+import static mod.minigameplugin.ZombieSurvivalGame.ZombiesShopManager.linkPlayerToCoinCount;
 import static org.bukkit.Bukkit.getServer;
 
 public class ZombieGameMainScoreboard implements Listener {
@@ -33,15 +33,23 @@ public class ZombieGameMainScoreboard implements Listener {
     public static void updateZombieGameScoreboard(FastBoard board, Player player) {
 
         board.updateLines(
-                "",
-                ChatColor.AQUA + "" + ChatColor.BOLD + "Players " + ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "Alive" + ChatColor.AQUA + "" + ChatColor.BOLD + "/" + ChatColor.DARK_RED + "" + ChatColor.BOLD + "Dead" + ChatColor.AQUA + "" + ChatColor.BOLD + ": " + ChatColor.DARK_GREEN + "" + ChatColor.BOLD + zombiesPlayersAlive.size() + ChatColor.AQUA + "" + ChatColor.BOLD + " / " + ChatColor.DARK_RED + "" + ChatColor.BOLD + zombiesPlayersDead.size(),
+                ChatColor.GREEN + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "--------------------",
 
-                "",
-                ChatColor.AQUA + "" + ChatColor.BOLD + "Kills: " + linkPlayerToKillCount.get(player),
+                ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Coins]: " + ChatColor.GREEN + linkPlayerToCoinCount.get(player),
 
                 "",
 
-                ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "-----[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Players" + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "]-----"
+                ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Kills]: " + ChatColor.GREEN + linkPlayerToKillCount.get(player),
+
+                "",
+
+                ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Deaths]: " + ChatColor.GREEN + linkPlayerToDeathCount.get(player),
+
+                "",
+
+                ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Players" + ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "]-----",
+
+                ChatColor.GREEN + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "--------------------"
         );
 
     }
@@ -56,7 +64,7 @@ public class ZombieGameMainScoreboard implements Listener {
 
         FastBoard board = new FastBoard(player);
 
-        board.updateTitle(ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "===[Zombies]===");
+        board.updateTitle(ChatColor.GREEN + "" + ChatColor.BOLD + "===[Zombies]===");
 
         this.zombieGameBoards.put(player, board);
 
