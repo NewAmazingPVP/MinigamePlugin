@@ -18,14 +18,13 @@ public class ZombieGameMain {
     public static boolean isZombieGameRunning = false;
 
 
-
     public static BukkitRunnable zombieGameMainRunnable;
     public static List<Player> playersInCurrentGame = new ArrayList<>();
 
 
     public static int currentZombieGameTime = 0;
 
-    public static void startZombieGame(Player player1){
+    public static void startZombieGame(Player player1) {
 
         player1.sendMessage("test1");
 
@@ -42,7 +41,16 @@ public class ZombieGameMain {
             @Override
             public void run() {
 
-                currentZombieGameTime +=1;
+                currentZombieGameTime += 1;
+
+            }
+        };
+        zombieGameMainRunnable.runTaskTimer(minigamePlugin, 0L, 20L); // Start immediately and repeat every second
+
+
+
+
+
 
 
 
@@ -69,18 +77,7 @@ public class ZombieGameMain {
                     }
                 }
                 zombieGameMainRunnable -= 1;*/
-            }
-        };
-        zombieGameMainRunnable.runTaskTimer(minigamePlugin, 0L, 20L);
-
-
-
-
-
-
-
     }
-
 
 
 }
