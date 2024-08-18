@@ -19,28 +19,41 @@ public class ZombieGameMain {
 
 
 
-    public static BukkitRunnable preGameTimer;
+    public static BukkitRunnable zombieGameMainRunnable;
     public static List<Player> playersInCurrentGame = new ArrayList<>();
 
-    private static int preGameTimerCountdown = 10;
 
+    public static int currentZombieGameTime = 0;
 
+    public static void startZombieGame(Player player1){
 
-    public static void startZombieGame(){
+        player1.sendMessage("test1");
 
         playersInCurrentGame.addAll(Bukkit.getOnlinePlayers());
+
+        player1.sendMessage("test2");
 
         for (Player player : playersInCurrentGame) {
             player.teleport(startGameSpawn);
         }
 
+        player1.sendMessage("test3");
 
-        preGameTimer = new BukkitRunnable() {
+        zombieGameMainRunnable = new BukkitRunnable() {
             @Override
             public void run() {
 
+                player1.sendMessage("test4");
 
-                if (preGameTimerCountdown <= 0) {
+
+
+
+
+
+
+
+
+                /*if (zombieGameMainRunnable <= 0) {
 
                     Bukkit.broadcastMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[Game Starting!]");
                     Bukkit.getOnlinePlayers().forEach(p -> p.sendTitle(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[Game Starting!]", " ", 10, 40, 5));
@@ -49,18 +62,18 @@ public class ZombieGameMain {
                     return;
                 }
 
-                Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "[" + preGameTimerCountdown + "]");
+                Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "[" + zombieGameMainRunnable + "]");
 
-                if (preGameTimerCountdown <= 5) {
-                    Bukkit.getOnlinePlayers().forEach(p -> p.sendTitle(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "[" + preGameTimerCountdown + "]", " ", 10, 40, 5));
+                if (zombieGameMainRunnable <= 5) {
+                    Bukkit.getOnlinePlayers().forEach(p -> p.sendTitle(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "[" + zombieGameMainRunnable + "]", " ", 10, 40, 5));
                     for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                         onlinePlayer.playSound(onlinePlayer.getLocation(), Sound.UI_BUTTON_CLICK, 2.0f, 1.0f);
                     }
                 }
-                preGameTimerCountdown -= 1;
+                zombieGameMainRunnable -= 1;*/
             }
         };
-        preGameTimer.runTaskTimer(minigamePlugin, 0L, 20L);
+        zombieGameMainRunnable.runTaskTimer(minigamePlugin, 0L, 20L);
 
 
 
