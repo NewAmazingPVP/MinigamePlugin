@@ -45,13 +45,13 @@ public class ZombieGameMainScoreboard implements Listener {
 
                 ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Deaths]: " + ChatColor.GREEN + linkPlayerToDeathCount.get(player),
 
-                "",
+                //"",
 
                 //ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "--" + ChatColor.GREEN + "" + ChatColor.BOLD + "[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Players" + ChatColor.GREEN + "" + ChatColor.BOLD + "]" + ChatColor.DARK_GREEN + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "----------",
 
 
+                ChatColor.DARK_GREEN + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "--------------------"
 
-                ChatColor.GREEN + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "--------------------"
 
         );
 
