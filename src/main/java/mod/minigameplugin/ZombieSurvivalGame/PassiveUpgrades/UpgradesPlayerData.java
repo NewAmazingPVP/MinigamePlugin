@@ -6,26 +6,23 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class UpgradesPlayerData implements Listener {
 
-    public static HashMap<Player, Integer> linkPlayerToSpeedUpgrade = new HashMap<>();
+    public static HashMap<UUID, Integer> linkPlayerToSpeedUpgrade = new HashMap<>();
 
-    public static HashMap<Player, Integer> linkPlayerToJumpUpgrade = new HashMap<>();
+    public static HashMap<UUID, Integer> linkPlayerToJumpUpgrade = new HashMap<>();
 
-    public static HashMap<Player, Integer> linkPlayerToSlowUpgrade = new HashMap<>();
+    public static HashMap<UUID, Integer> linkPlayerToSlowUpgrade = new HashMap<>();
 
-    public static HashMap<Player, Integer> linkPlayerToLifeStealUpgrade = new HashMap<>();
+    public static HashMap<UUID, Integer> linkPlayerToLifeStealUpgrade = new HashMap<>();
 
-    public static HashMap<Player, Integer> linkPlayerToGoldBoostUpgrade = new HashMap<>();
+    public static HashMap<UUID, Integer> linkPlayerToGoldBoostUpgrade = new HashMap<>();
 
-    public static HashMap<Player, Integer> linkPlayerToHpBoostUpgrade = new HashMap<>();
+    public static HashMap<UUID, Integer> linkPlayerToHpBoostUpgrade = new HashMap<>();
 
-    public static HashMap<Player, Integer> linkPlayerToWitherUpgrade = new HashMap<>();
+    public static HashMap<UUID, Integer> linkPlayerToWitherUpgrade = new HashMap<>();
 
 
 
@@ -39,23 +36,27 @@ public class UpgradesPlayerData implements Listener {
     public void playerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
 
+        UUID uuid = player.getUniqueId();
+
 
         for (HashMap statsHashMap : statsHashMaps) {
 
-            if (!isPlayerInHashMap(player,statsHashMap)) {
-                statsHashMap.put(player, 0);
-                player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Debug]" + ChatColor.GREEN + "Added a data slot for u in " + statsHashMap);
+            if (!isPlayerInHashMap(uuid,statsHashMap)) {
+                statsHashMap.put(uuid, 0);
+                player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Debug] " + ChatColor.GREEN + "Added a data slot for u in " + statsHashMap);
             }
 
         }
 
 
-        
+
     }
 
 
-    private static boolean isPlayerInHashMap(Player player,HashMap map) {
-        return map.containsKey(player);
+    private static boolean isPlayerInHashMap(UUID uuid,HashMap map) {
+        return map.containsKey(uuid);
     }
+
+
 
 }
