@@ -22,7 +22,6 @@ import static mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils.*;
 
 public class Pistol implements Listener {
 
-    private final Map<Player, CooldownManager> tntCooldowns = new HashMap<>();
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
