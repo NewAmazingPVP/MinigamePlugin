@@ -6,6 +6,7 @@ import mod.minigameplugin.AllMinigameListeners.ActionBarDamageIndicator;
 import mod.minigameplugin.Commands.*;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunListeners.Pistol;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils;
+import mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenu;
 import mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesPlayerData;
 import mod.minigameplugin.ZombieSurvivalGame.Scoreboards.ZombieGameMainScoreboard;
 import mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack.HealPackChargesManager;
@@ -42,6 +43,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new HealPackChargesManager(), this);
         getServer().getPluginManager().registerEvents(new ZombieGameMainScoreboard(), this);
         getServer().getPluginManager().registerEvents(new UpgradesPlayerData(), this);
+        getServer().getPluginManager().registerEvents(new UpgradesMenu(), this);
         //getServer().getPluginManager().registerEvents(new LobbyMain(), this);
         //getServer().getPluginManager().registerEvents(new HitIndicator(), this);
         //getServer().getPluginManager().registerEvents(new RandomCoinPickup(), this);
