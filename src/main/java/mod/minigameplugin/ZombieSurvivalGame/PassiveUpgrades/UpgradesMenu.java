@@ -86,9 +86,8 @@ public class UpgradesMenu implements Listener {
         playerUpgradeMenu.setItem(50,guiGlass_BLACK());
         playerUpgradeMenu.setItem(52,guiGlass_BLACK());
 
-        playerUpgradeMenu.setItem(37,speedUpgrade_GUI(1,true));
-
-        //linkPlayerToNumberOfUpgradePoints.get(uuid)
+        playerUpgradeMenu.setItem(37,speedUpgrade_GUI_TEMP());
+        
 
         player.openInventory(playerUpgradeMenu);
 
@@ -129,6 +128,46 @@ public class UpgradesMenu implements Listener {
         guiGlass.setItemMeta(meta);
         return guiGlass;
     }
+
+    private static ItemStack speedUpgrade_GUI_TEMP(){
+
+        ItemStack guiGlass = new ItemStack(Material.SUGAR);
+        ItemMeta meta = guiGlass.getItemMeta();
+
+        meta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "[Speed Upgrade]");
+
+        List<String> lore = new ArrayList<>();
+
+        lore.add(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "----------");
+        lore.add(ChatColor.YELLOW + "Click to upgrade");
+        lore.add(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + ChatColor.STRIKETHROUGH + "----------");
+
+
+
+        meta.setLore(lore);
+        guiGlass.setItemMeta(meta);
+        return guiGlass;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     private static ItemStack speedUpgrade_GUI(Integer lvl, Boolean canUpgrade){
