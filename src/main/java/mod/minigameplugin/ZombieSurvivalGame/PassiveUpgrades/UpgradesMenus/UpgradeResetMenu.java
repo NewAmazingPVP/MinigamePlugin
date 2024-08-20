@@ -52,7 +52,7 @@ public class UpgradeResetMenu implements Listener {
         //resetOrbMenu.setItem(20,guiGlass_BLACK());
         //resetOrbMenu.setItem(21,guiGlass_BLACK());
         resetOrbMenu.setItem(22,guiGlass_BLACK());
-        //resetOrbMenu.setItem(23,craftingTableItem);
+        resetOrbMenu.setItem(23,craftingTableItem);
         resetOrbMenu.setItem(24,guiGlass_BLACK());
         resetOrbMenu.setItem(25,resetOrbItem());
         resetOrbMenu.setItem(26,guiGlass_BLACK());
@@ -77,6 +77,8 @@ public class UpgradeResetMenu implements Listener {
         resetOrbMenu.setItem(43,guiGlass_BLACK());
         resetOrbMenu.setItem(44,guiGlass_BLACK());
 
+
+        player.openInventory(resetOrbMenu);
 
     }
 
