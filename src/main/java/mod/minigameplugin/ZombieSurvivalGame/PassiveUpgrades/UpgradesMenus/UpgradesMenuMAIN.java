@@ -75,20 +75,11 @@ public class UpgradesMenuMAIN implements Listener {
         guiGlass.setItemMeta(meta);
         return guiGlass;
     }
-
-    private static ItemStack speedUpgrade_GUI_INFO() {
-
-        ItemStack guiGlass = new ItemStack(Material.REDSTONE_TORCH);
-        ItemMeta meta = guiGlass.getItemMeta();
-
-
-        guiGlass.setItemMeta(meta);
-        return guiGlass;
-    }
+    
 
 
 
-    public static ItemStack corruptedCoreT1() {
+    public static ItemStack speedUpgrade_GUI_INFO() {
 
         PlayerProfile profile = getProfile("https://textures.minecraft.net/texture/d01afe973c5482fdc71e6aa10698833c79c437f21308ea9a1a095746ec274a0f");
         ItemStack info = new ItemStack(Material.PLAYER_HEAD);
@@ -130,7 +121,7 @@ public class UpgradesMenuMAIN implements Listener {
 
     public static ItemStack toResetRecipiMenu() {
 
-        PlayerProfile profile = getProfile("https://textures.minecraft.net/texture/74b662d3b529a187261cab86c6e56423bf876aa249d030faeaf34362f3447277");
+        PlayerProfile profile = getProfile("https://textures.minecraft.net/texture/6db32b15d7f32704ed626fa52d06fb2b4071d336fdbfe61e6e41c669d6e37f47");
         ItemStack info = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta meta = (SkullMeta) info.getItemMeta();
         meta.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Reset Orb Recipe");
@@ -157,7 +148,7 @@ public class UpgradesMenuMAIN implements Listener {
         if (e.getView().getTitle().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.BOLD + "        Upgrade Menu")) {
 
             if (itemInHand != null && itemInHand.getType() == Material.PLAYER_HEAD && itemInHand.hasItemMeta() && itemInHand.getItemMeta().hasDisplayName() && itemInHand.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "" + ChatColor.BOLD + "Upgrades Menu")) {
-                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 0.0f);
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 2.0f);
                 openPlayerUpgradesMenu(player);
 
             }
