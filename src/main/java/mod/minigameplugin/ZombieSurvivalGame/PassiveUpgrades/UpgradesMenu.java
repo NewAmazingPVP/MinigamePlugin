@@ -41,7 +41,8 @@ public class UpgradesMenu implements Listener {
     public static void openPlayerUpgradesMenu(Player player){
 
         UUID uuid = player.getUniqueId();
-        
+
+
 
         Inventory playerUpgradeMenu = Bukkit.createInventory(null, 54, ChatColor.AQUA + "" + ChatColor.BOLD + "        Upgrade Menu");
 
@@ -85,9 +86,9 @@ public class UpgradesMenu implements Listener {
         playerUpgradeMenu.setItem(50,guiGlass_BLACK());
         playerUpgradeMenu.setItem(52,guiGlass_BLACK());
 
-        playerUpgradeMenu.setItem(37,speedUpgrade_GUI(linkPlayerToNumberOfUpgradePoints.get(uuid),true));
+        playerUpgradeMenu.setItem(37,speedUpgrade_GUI(1,true));
 
-
+        //linkPlayerToNumberOfUpgradePoints.get(uuid)
 
         player.openInventory(playerUpgradeMenu);
 
