@@ -75,7 +75,7 @@ public class UpgradesMenuMAIN implements Listener {
         guiGlass.setItemMeta(meta);
         return guiGlass;
     }
-    
+
 
 
 
