@@ -5,7 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenu.openPlayerUpgradesMenu;
+import static mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenus.UpgradesMenu.openPlayerUpgradesMenu;
+import static mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenus.UpgradesMenuMAIN.openUpgradeMenuMAIN;
 import static mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack.HealPackChargesManager.healthPack;
 
 public class GiveHealthPack implements CommandExecutor {
@@ -18,7 +19,7 @@ public class GiveHealthPack implements CommandExecutor {
 
         player.getInventory().addItem(healthPack(player));
 
-        openPlayerUpgradesMenu(player);
+        openUpgradeMenuMAIN(player);
 
         return true;
     }
