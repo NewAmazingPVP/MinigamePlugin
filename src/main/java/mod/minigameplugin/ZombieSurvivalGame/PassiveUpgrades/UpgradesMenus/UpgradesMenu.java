@@ -1,4 +1,4 @@
-package mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades;
+package mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenus;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -21,16 +21,7 @@ import static mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesPlay
 public class UpgradesMenu implements Listener {
 
 
-    @EventHandler
-    public void clickEvent(InventoryClickEvent e){
 
-        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.BOLD + "        Upgrade Menu")) {
-
-            e.setCancelled(true);
-
-        }
-
-    }
 
 
 
@@ -87,7 +78,7 @@ public class UpgradesMenu implements Listener {
         playerUpgradeMenu.setItem(52,guiGlass_BLACK());
 
         playerUpgradeMenu.setItem(37,speedUpgrade_GUI_TEMP());
-        
+
 
         player.openInventory(playerUpgradeMenu);
 

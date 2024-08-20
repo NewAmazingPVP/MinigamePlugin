@@ -1,18 +1,16 @@
 package mod.minigameplugin;
 
 import com.earth2me.essentials.Essentials;
-import fr.mrmicky.fastboard.FastBoard;
 import mod.minigameplugin.AllMinigameListeners.ActionBarDamageIndicator;
 import mod.minigameplugin.Commands.*;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunListeners.Pistol;
 import mod.minigameplugin.ZombieSurvivalGame.Guns.GunUtils;
-import mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenu;
+import mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenus.UpgradesMenu;
+import mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenus.UpgradesMenuMAIN;
 import mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesPlayerData;
 import mod.minigameplugin.ZombieSurvivalGame.Scoreboards.ZombieGameMainScoreboard;
 import mod.minigameplugin.ZombieSurvivalGame.ZombieGameItems.HealPack.HealPackChargesManager;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Statistic;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,10 +18,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 public final class MinigamePlugin extends JavaPlugin implements Listener {
 
@@ -44,6 +38,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ZombieGameMainScoreboard(), this);
         getServer().getPluginManager().registerEvents(new UpgradesPlayerData(), this);
         getServer().getPluginManager().registerEvents(new UpgradesMenu(), this);
+        getServer().getPluginManager().registerEvents(new UpgradesMenuMAIN(), this);
         //getServer().getPluginManager().registerEvents(new LobbyMain(), this);
         //getServer().getPluginManager().registerEvents(new HitIndicator(), this);
         //getServer().getPluginManager().registerEvents(new RandomCoinPickup(), this);
