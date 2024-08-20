@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static mod.minigameplugin.Utils.getProfile;
+import static mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenus.UpgradeResetMenu.openResetRecipieMenu;
 import static mod.minigameplugin.ZombieSurvivalGame.PassiveUpgrades.UpgradesMenus.UpgradesMenu.openPlayerUpgradesMenu;
 
 public class UpgradesMenuMAIN implements Listener {
@@ -25,7 +26,7 @@ public class UpgradesMenuMAIN implements Listener {
 
     public static void openUpgradeMenuMAIN(Player player){
 
-        Inventory playerUpgradeMenuMAIN = Bukkit.createInventory(null, 27, ChatColor.AQUA + "" + ChatColor.BOLD + "        Upgrade Menu");
+        Inventory playerUpgradeMenuMAIN = Bukkit.createInventory(null, 27, ChatColor.AQUA + "" + ChatColor.BOLD + "Upgrade Menu");
 
         playerUpgradeMenuMAIN.setItem(0,guiGlass_BLACK());
         playerUpgradeMenuMAIN.setItem(1,guiGlass_BLACK());
@@ -145,11 +146,17 @@ public class UpgradesMenuMAIN implements Listener {
         ItemStack itemInHand = e.getCurrentItem();
         Player player = (Player) e.getWhoClicked();
 
-        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.BOLD + "        Upgrade Menu")) {
+        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.BOLD + "Upgrade Menu")) {
 
             if (itemInHand != null && itemInHand.getType() == Material.PLAYER_HEAD && itemInHand.hasItemMeta() && itemInHand.getItemMeta().hasDisplayName() && itemInHand.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "" + ChatColor.BOLD + "Upgrades Menu")) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 2.0f);
                 openPlayerUpgradesMenu(player);
+
+            }
+
+            if (itemInHand != null && itemInHand.getType() == Material.PLAYER_HEAD && itemInHand.hasItemMeta() && itemInHand.getItemMeta().hasDisplayName() && itemInHand.getItemMeta().getDisplayName().equals(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Reset Orb Recipe")) {
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 2.0f);
+                openResetRecipieMenu(player);
 
             }
 
