@@ -70,6 +70,11 @@ public class UpgradesMenu implements Listener {
         playerUpgradeMenu.setItem(44,guiGlass_BLACK());
         playerUpgradeMenu.setItem(53,guiGlass_BLACK());
 
+        playerUpgradeMenu.setItem(46,guiGlass_BLACK());
+        playerUpgradeMenu.setItem(48,guiGlass_BLACK());
+        playerUpgradeMenu.setItem(50,guiGlass_BLACK());
+        playerUpgradeMenu.setItem(52,guiGlass_BLACK());
+
 
 
         player.openInventory(playerUpgradeMenu);
