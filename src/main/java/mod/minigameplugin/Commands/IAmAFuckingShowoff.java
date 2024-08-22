@@ -3,6 +3,7 @@ package mod.minigameplugin.Commands;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -53,10 +54,15 @@ public class IAmAFuckingShowoff implements CommandExecutor {
         ItemStack item = player.getInventory().getItemInMainHand();
         ItemMeta meta = item.getItemMeta();
 
-        TextComponent itemLoreChatDisplay = new TextComponent(ChatColor.AQUA + "" + ChatColor.BOLD + "test 123");
-        itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(ChatColor.AQUA + "" + ChatColor.BOLD + "if u see this... yay").create()));
+        TextComponent itemLoreChatDisplay = new TextComponent("test");
+        //itemLoreChatDisplay.setFont("minecraft:uniform");
 
-        Bukkit.broadcastMessage(String.valueOf(itemLoreChatDisplay));
+        itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,new Text("test123")));
+
+        player.spigot().sendMessage(itemLoreChatDisplay);
+
+        //itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(ChatColor.AQUA + "" + ChatColor.BOLD + "if u see this... yay").create()));
+        //Bukkit.broadcastMessage(String.valueOf(itemLoreChatDisplay));
 
     }
 
