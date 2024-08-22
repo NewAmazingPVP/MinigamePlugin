@@ -51,6 +51,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getCommand("zombiegame").setExecutor(new StartZombieGame());
         getCommand("givezombiesitem").setExecutor(new GiveZombiesItemCMD());
         getCommand("givehealthpack").setExecutor(new GiveHealthPack());
+        getCommand("iamafuckingshowoff").setExecutor(new IAmAFuckingShowoff());
 
         getServer().getScheduler().runTaskTimer(this, () -> {
             /*for (FastBoard board : this.boards.values()) {
