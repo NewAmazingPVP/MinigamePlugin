@@ -27,55 +27,55 @@ public class UpgradeResetMenu implements Listener {
 
         Inventory resetOrbMenu = Bukkit.createInventory(null, 45, ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Reset Orb Recipe");
 
-        resetOrbMenu.setItem(0,guiGlass_BLACK());
-        resetOrbMenu.setItem(1,guiGlass_BLACK());
+        resetOrbMenu.setItem(0,guiGlass_RED());
+        resetOrbMenu.setItem(1,guiGlass_RED());
         resetOrbMenu.setItem(2,guiGlass_BLACK());
         resetOrbMenu.setItem(3,guiGlass_BLACK());
         resetOrbMenu.setItem(4,guiGlass_BLACK());
         resetOrbMenu.setItem(5,guiGlass_BLACK());
         resetOrbMenu.setItem(6,guiGlass_BLACK());
-        resetOrbMenu.setItem(7,guiGlass_BLACK());
-        resetOrbMenu.setItem(8,guiGlass_BLACK());
+        resetOrbMenu.setItem(7,guiGlass_RED());
+        resetOrbMenu.setItem(8,guiGlass_RED());
 
-        resetOrbMenu.setItem(9,guiGlass_BLACK());
-        //resetOrbMenu.setItem(10,guiGlass_BLACK());
-        //resetOrbMenu.setItem(11,guiGlass_BLACK());
-        //resetOrbMenu.setItem(12,guiGlass_BLACK());
+        resetOrbMenu.setItem(9,guiGlass_RED());
+        resetOrbMenu.setItem(10,amethystShard);
+        resetOrbMenu.setItem(11,amethystShard);
+        resetOrbMenu.setItem(12,amethystShard);
         resetOrbMenu.setItem(13,guiGlass_BLACK());
         resetOrbMenu.setItem(14,guiGlass_BLACK());
         resetOrbMenu.setItem(15,guiGlass_BLACK());
         resetOrbMenu.setItem(16,guiGlass_BLACK());
-        resetOrbMenu.setItem(17,guiGlass_BLACK());
+        resetOrbMenu.setItem(17,guiGlass_RED());
 
         resetOrbMenu.setItem(18,guiGlass_BLACK());
-        //resetOrbMenu.setItem(19,guiGlass_BLACK());
-        //resetOrbMenu.setItem(20,guiGlass_BLACK());
-        //resetOrbMenu.setItem(21,guiGlass_BLACK());
+        resetOrbMenu.setItem(19,diamond);
+        resetOrbMenu.setItem(20,diamond);
+        resetOrbMenu.setItem(21,diamond);
         resetOrbMenu.setItem(22,guiGlass_BLACK());
         resetOrbMenu.setItem(23,craftingTableItem);
         resetOrbMenu.setItem(24,guiGlass_BLACK());
         resetOrbMenu.setItem(25,resetOrbItem());
         resetOrbMenu.setItem(26,guiGlass_BLACK());
 
-        resetOrbMenu.setItem(27,guiGlass_BLACK());
-        //resetOrbMenu.setItem(28,guiGlass_BLACK());
-        //resetOrbMenu.setItem(29,guiGlass_BLACK());
-        //resetOrbMenu.setItem(30,guiGlass_BLACK());
+        resetOrbMenu.setItem(27,guiGlass_RED());
+        resetOrbMenu.setItem(28,copperBlock);
+        resetOrbMenu.setItem(29,copperBlock);
+        resetOrbMenu.setItem(30,copperBlock);
         resetOrbMenu.setItem(31,guiGlass_BLACK());
         resetOrbMenu.setItem(32,guiGlass_BLACK());
         resetOrbMenu.setItem(33,guiGlass_BLACK());
         resetOrbMenu.setItem(34,guiGlass_BLACK());
-        resetOrbMenu.setItem(35,guiGlass_BLACK());
+        resetOrbMenu.setItem(35,guiGlass_RED());
 
-        resetOrbMenu.setItem(36,guiGlass_BLACK());
-        resetOrbMenu.setItem(37,guiGlass_BLACK());
+        resetOrbMenu.setItem(36,guiGlass_RED());
+        resetOrbMenu.setItem(37,guiGlass_RED());
         resetOrbMenu.setItem(38,guiGlass_BLACK());
         resetOrbMenu.setItem(39,guiGlass_BLACK());
         resetOrbMenu.setItem(40,guiGlass_BLACK());
         resetOrbMenu.setItem(41,guiGlass_BLACK());
         resetOrbMenu.setItem(42,guiGlass_BLACK());
-        resetOrbMenu.setItem(43,guiGlass_BLACK());
-        resetOrbMenu.setItem(44,guiGlass_BLACK());
+        resetOrbMenu.setItem(43,guiGlass_RED());
+        resetOrbMenu.setItem(44,guiGlass_RED());
 
 
         player.openInventory(resetOrbMenu);
@@ -83,6 +83,12 @@ public class UpgradeResetMenu implements Listener {
     }
 
     private static final ItemStack craftingTableItem = new ItemStack(Material.CRAFTING_TABLE);
+
+    private static final ItemStack amethystShard = new ItemStack(Material.AMETHYST_SHARD);
+
+    private static final ItemStack copperBlock = new ItemStack(Material.COPPER_BLOCK);
+
+    private static final ItemStack diamond = new ItemStack(Material.DIAMOND);
 
 
     private static ItemStack guiGlass_BLACK() {
@@ -92,6 +98,17 @@ public class UpgradeResetMenu implements Listener {
 
         meta.setDisplayName(" ");
 
+
+        guiGlass.setItemMeta(meta);
+        return guiGlass;
+    }
+
+    private static ItemStack guiGlass_RED(){
+
+        ItemStack guiGlass = new ItemStack(Material.RED_STAINED_GLASS_PANE);
+        ItemMeta meta = guiGlass.getItemMeta();
+
+        meta.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[Not Yet Unlocked]");
 
         guiGlass.setItemMeta(meta);
         return guiGlass;
@@ -107,7 +124,7 @@ public class UpgradeResetMenu implements Listener {
 
         List<String> lore = new ArrayList<>();
 
-        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Click]");
+        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "[Right Click]");
         lore.add(ChatColor.DARK_PURPLE + "Resets all your upgrade points");
         lore.add(ChatColor.DARK_PURPLE + "and gives them back to you.");
 
