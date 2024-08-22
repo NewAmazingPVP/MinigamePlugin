@@ -29,3 +29,6 @@ commands:
     usage: /givehealthpack
     permission: lifestealSMP.admin
     default: op
+  iamafuckingshowoff:
+    description: Displays to everyone or a single player what you have
+    usage: /iamafuckingshowoff <player>
