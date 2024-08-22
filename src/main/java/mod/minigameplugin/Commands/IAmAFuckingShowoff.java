@@ -49,15 +49,16 @@ public class IAmAFuckingShowoff implements CommandExecutor {
     }
 
 
+    //itemLoreChatDisplay.setFont("minecraft:uniform");
 
     private static void getItemLoreForChat(Player player){
         ItemStack item = player.getInventory().getItemInMainHand();
         ItemMeta meta = item.getItemMeta();
 
         TextComponent itemLoreChatDisplay = new TextComponent("test");
-        //itemLoreChatDisplay.setFont("minecraft:uniform");
 
-        itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,new Text("test123")));
+
+        itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, new ComponentBuilder(String.valueOf(item)).create()));
 
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()){
