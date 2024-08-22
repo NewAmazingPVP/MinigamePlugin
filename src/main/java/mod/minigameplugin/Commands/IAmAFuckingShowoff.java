@@ -59,10 +59,10 @@ public class IAmAFuckingShowoff implements CommandExecutor {
 
         itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,new Text("test123")));
 
-        player.spigot().sendMessage(itemLoreChatDisplay);
+        //player.spigot().sendMessage(itemLoreChatDisplay);
 
         //itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(ChatColor.AQUA + "" + ChatColor.BOLD + "if u see this... yay").create()));
-        //Bukkit.broadcastMessage(String.valueOf(itemLoreChatDisplay));
+        Bukkit.broadcastMessage(String.valueOf("test123" + itemLoreChatDisplay));
 
     }
 
