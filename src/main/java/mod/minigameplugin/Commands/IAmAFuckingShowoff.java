@@ -3,7 +3,6 @@ package mod.minigameplugin.Commands;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.md_5.bungee.api.chat.hover.content.Content;
 import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -58,7 +57,7 @@ public class IAmAFuckingShowoff implements CommandExecutor {
         TextComponent itemLoreChatDisplay = new TextComponent("test");
         //itemLoreChatDisplay.setFont("minecraft:uniform");
 
-        itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, (Content) meta));
+        itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,new Text("test123")));
 
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()){
