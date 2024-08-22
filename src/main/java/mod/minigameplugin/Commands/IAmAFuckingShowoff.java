@@ -1,5 +1,6 @@
 package mod.minigameplugin.Commands;
 
+import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -58,14 +59,17 @@ public class IAmAFuckingShowoff implements CommandExecutor {
         TextComponent itemLoreChatDisplay = new TextComponent("test");
 
 
-        itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, new ComponentBuilder(String.valueOf(item)).create()));
-
+        //itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, new ComponentBuilder(item).create()));
+        HoverEvent hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_ITEM, new ComponentBuilder("§6" + item).create());
+        
+        itemLoreChatDisplay.setHoverEvent(hoverEvent);
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()){
             player.spigot().sendMessage(itemLoreChatDisplay);
         }
 
     }
+
 
 
 }
