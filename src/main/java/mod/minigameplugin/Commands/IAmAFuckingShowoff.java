@@ -56,7 +56,7 @@ public class IAmAFuckingShowoff implements CommandExecutor {
         TextComponent itemLoreChatDisplay = new TextComponent(ChatColor.AQUA + "" + ChatColor.BOLD + "test 123");
         itemLoreChatDisplay.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(ChatColor.AQUA + "" + ChatColor.BOLD + "if u see this... yay").create()));
 
-        Bukkit.broadcastMessage(String.valueOf(itemLoreChatDisplay));
+        Bukkit.broadcastMessage(itemLoreChatDisplay + " ");
 
     }
 
