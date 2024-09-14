@@ -29,7 +29,7 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
 
     //private final Map<UUID, FastBoard> boards = new HashMap<>();
 
-    @Override
+    /*@Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new ActionBarDamageIndicator(), this);
@@ -54,11 +54,11 @@ public final class MinigamePlugin extends JavaPlugin implements Listener {
         getCommand("iamafuckingshowoff").setExecutor(new IAmAFuckingShowoff());
 
         getServer().getScheduler().runTaskTimer(this, () -> {
-            /*for (FastBoard board : this.boards.values()) {
+            for (FastBoard board : this.boards.values()) {
                 updateBoard(board);
-            }*/
+            }
         }, 0, 20);
-    }
+    }*/
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
